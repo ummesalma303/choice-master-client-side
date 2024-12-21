@@ -5,6 +5,9 @@ import {
 import ErrorPage from '../ErrorPage/ErrorPage';
 import MainLayout from '../layout/MainLayout';
 import Home from '../Pages/Home';
+import Queries from '../pages/Queries';
+import RecommendationsForMe from '../pages/RecommendationsForMe';
+import MyQueries from '../pages/MyQueries';
 
 
   const router = createBrowserRouter([
@@ -16,7 +19,20 @@ import Home from '../Pages/Home';
       {
         path:'/',
         element:<Home/>
-      }]
+        },
+      {
+        path:'/queries',
+        element:<Queries/>
+        },
+      {
+        path:'/recommendationsForMe',
+        element:<RecommendationsForMe/>
+        },
+      {
+        path:'/myQueries',
+        element:<MyQueries/>
+        },
+      ]
     },
   ]);
   

@@ -5,11 +5,58 @@ import { NavLink } from 'react-router-dom';
 const Navbar = () => {
     const data = useContext(AuthContext);
     console.log(data.theme)
+    const link = <>
+    <NavLink to='/'>Home</NavLink>
+    <NavLink to='/queries'>Queries</NavLink>
+    <NavLink to='/recommendationsForMe'>Recommendations For Me</NavLink>
+    <NavLink to='/myQueries'>My Queries</NavLink>
+    </>
     return (
-        <div className='bg-red-400'>
-            <p>i am nav</p>
-            <NavLink to='/'>Home</NavLink>
+        <div className="bg-emerald-400 text-white ">
+            <div className="max-w-7xl mx-auto navbar ">
+            <div className="navbar-start">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-black">
+                            <li>{ link}</li>
+              {/* <li>
+                <a>Parent</a>
+                <ul className="p-2">
+                  <li><a>Submenu 1</a></li>
+                  <li><a>Submenu 2</a></li>
+                </ul>
+              </li>
+              <li><a>Item 3</a></li> */}
+            </ul>
+          </div>
+          <a className="btn btn-ghost text-xl">Top <span className='text-black'>Pick</span> Guide</a>
         </div>
+        
+                  <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 space-x-5 text-white"> 
+            {link}
+          </ul>
+        </div>
+        <div className="navbar-end">
+          <a className="btn">Log Out</a>
+        </div>
+       </div>
+      </div>
     );
 };
 
