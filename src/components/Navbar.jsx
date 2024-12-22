@@ -3,12 +3,14 @@ import { AuthContext } from '../provider/AuthProvider';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-    const data = useContext(AuthContext);
-    console.log(data.theme)
+    const {user,signOutUser} = useContext(AuthContext);
+    console.log(user)
     const link = <>
     <NavLink to='/'>Home</NavLink>
     <NavLink to='/queries'>Queries</NavLink>
-    <NavLink to='/recommendationsForMe'>Recommendations For Me</NavLink>
+   {
+    user&& <NavLink to='/recommendationsForMe'>Recommendations For Me</NavLink>
+   }
     <NavLink to='/myQueries'>My Queries</NavLink>
     </>
     return (
@@ -34,14 +36,7 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-black">
                             <li>{ link}</li>
-              {/* <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li><a>Submenu 1</a></li>
-                  <li><a>Submenu 2</a></li>
-                </ul>
-              </li>
-              <li><a>Item 3</a></li> */}
+              
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">Choice Master</a>
@@ -53,8 +48,12 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end space-x-4">
-          <button className="btn">Log Out</button>
-          <NavLink to='/signUp'><button className='btn'>Sign Up</button></NavLink>
+          {
+            user? <div className='flex justify-center items-center space-x-3'><button className="btn" onClick={signOutUser}>Log Out</button> <img referrerPolicy='no-referrer' title={user?.displayName} className='w-12 h-12 rounded-full' src={user?.photoURL
+            } alt="" /></div>:<NavLink to='/login'><button className='btn'>Log In</button></NavLink>
+            }
+            
+            
         </div>
        </div>
       </div>

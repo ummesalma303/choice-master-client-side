@@ -8,8 +8,10 @@ import Home from '../Pages/Home';
 import Queries from '../pages/Queries';
 import RecommendationsForMe from '../pages/RecommendationsForMe';
 import MyQueries from '../pages/MyQueries';
-import SignIn from '../pages/SignIn';
-import SignUp from '../pages/SignUp';
+// import SignIn from '../pages/Login';
+import Register from '../pages/Register';
+import Login from '../pages/Login';
+import PrivateRoute from '../PrivateRoutes/PrivateRoute';
 
 
   const router = createBrowserRouter([
@@ -28,15 +30,19 @@ import SignUp from '../pages/SignUp';
         },
       {
         path:'/recommendationsForMe',
-        element:<RecommendationsForMe/>
+        element:<PrivateRoute><RecommendationsForMe/></PrivateRoute>
         },
       {
-        path:'/signIn',
-        element:<SignIn/>
+        path:'/myQueries',
+        element:<PrivateRoute><MyQueries/></PrivateRoute>
         },
       {
-        path:'/signUp',
-        element:<SignUp/>
+        path:'/login',
+        element:<Login/>
+        },
+      {
+        path:'/register',
+        element:<Register/>
         },
       ]
     },
