@@ -1,20 +1,25 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { NavLink } from 'react-router-dom';
-
+import logo from '../assets/logo.png'
 const Navbar = () => {
     const {user,signOutUser} = useContext(AuthContext);
-    console.log(user)
+    // console.log(user)
     const link = <>
     <NavLink to='/'>Home</NavLink>
     <NavLink to='/queries'>Queries</NavLink>
    {
     user&& <NavLink to='/recommendationsForMe'>Recommendations For Me</NavLink>
    }
-    <NavLink to='/myQueries'>My Queries</NavLink>
+    {
+      user&&<NavLink to='/myQueries'>My Queries</NavLink>
+    }
+    {
+      user&&<NavLink to='/myRecommendations'>My recommendations</NavLink>
+    }
     </>
     return (
-        <div className="bg-emerald-300 text-white ">
+        <div className="bg-rose-400 text-white ">
             <div className="max-w-7xl mx-auto navbar ">
             <div className="navbar-start">
           <div className="dropdown">
@@ -39,6 +44,7 @@ const Navbar = () => {
               
             </ul>
           </div>
+          <img src={logo} alt="" />
           <a className="btn btn-ghost text-xl">Choice Master</a>
         </div>
         

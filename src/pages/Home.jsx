@@ -1,9 +1,12 @@
 // import React from 'react';
 // import Navbar from '../components/Navbar';
+import axios from 'axios'
 import RecentQueries from '../components/RecentQueries';
 import Slider from '../components/Slider';
 
 const Home = () => {
+    axios.get('http://localhost:5000/homeQueries')
+    .then(res=>console.log(res.data))
     return (
         <div>
            <Slider></Slider>

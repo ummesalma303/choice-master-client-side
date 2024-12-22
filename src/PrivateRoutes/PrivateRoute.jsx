@@ -6,13 +6,13 @@ const PrivateRoute = ({children}) => {
     // const location =useLocation()
     const {user,loading} = useContext(AuthContext);
     // const {user,loading} = useState(AuthContext)
-    console.log(loading,user)
+    // console.log(loading,user)
     if (loading) {
-        console.log(loading)
+        // console.log(loading)
         return <div className='h-20'><span className="loading loading-infinity loading-lg"></span></div>
     }
     if (user) {
-        console.log(user)
+        // console.log(user)
         return children
     }
     return <Navigate to='/' ></Navigate>
