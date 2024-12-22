@@ -12,7 +12,7 @@ const Navbar = () => {
     <NavLink to='/myQueries'>My Queries</NavLink>
     </>
     return (
-        <div className="bg-emerald-400 text-white ">
+        <div className="bg-emerald-300 text-white ">
             <div className="max-w-7xl mx-auto navbar ">
             <div className="navbar-start">
           <div className="dropdown">
@@ -44,7 +44,7 @@ const Navbar = () => {
               <li><a>Item 3</a></li> */}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Top <span className='text-black'>Pick</span> Guide</a>
+          <a className="btn btn-ghost text-xl">Choice Master</a>
         </div>
         
                   <div className="navbar-center hidden lg:flex">
@@ -52,8 +52,9 @@ const Navbar = () => {
             {link}
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Log Out</a>
+        <div className="navbar-end space-x-4">
+          <button className="btn">Log Out</button>
+          <NavLink to='/signUp'><button className='btn'>Sign Up</button></NavLink>
         </div>
        </div>
       </div>
