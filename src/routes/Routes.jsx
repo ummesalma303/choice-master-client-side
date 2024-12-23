@@ -16,6 +16,7 @@ import PrivateRoute from '../PrivateRoutes/PrivateRoute';
 import MyRecommendations from '../pages/MyRecommendations';
 import AddQueries from '../pages/AddQueries';
 import Home from '../Pages/Home';
+import QueryDetails from '../pages/QueryDetails';
 // import Home from '../pages/Home';
 
 
@@ -51,6 +52,12 @@ import Home from '../Pages/Home';
         path:'/addQueries',
         element:<PrivateRoute><AddQueries/></PrivateRoute>
         },
+      {
+        path:'/queryDetails/:id',
+        element:<PrivateRoute><QueryDetails/></PrivateRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/allQueries/${params.id}`)
+        },
+
       {
         path:'/login',
         element:<Login/>
