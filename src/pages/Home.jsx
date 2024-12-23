@@ -3,16 +3,17 @@
 import axios from 'axios'
 import RecentQueries from '../components/RecentQueries';
 import Slider from '../components/Slider';
+import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
-    axios.get('http://localhost:5000/homeQueries')
-    .then(res=>console.log(res.data))
+    const queries = useLoaderData()
+   
     return (
         <div>
            <Slider></Slider>
            {/* Recent Queries section */}
            <div className="w-11/12 mx-auto my-14">
-           <RecentQueries></RecentQueries>
+           <RecentQueries queries={queries}></RecentQueries>
            </div>
         </div>
     );

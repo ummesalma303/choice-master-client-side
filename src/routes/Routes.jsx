@@ -2,9 +2,10 @@ import React from 'react';
 import {
     createBrowserRouter,
   } from "react-router-dom";
+
 import ErrorPage from '../ErrorPage/ErrorPage';
 import MainLayout from '../layout/MainLayout';
-import Home from '../Pages/Home';
+
 import Queries from '../pages/Queries';
 import RecommendationsForMe from '../pages/RecommendationsForMe';
 import MyQueries from '../pages/MyQueries';
@@ -14,6 +15,8 @@ import Login from '../pages/Login';
 import PrivateRoute from '../PrivateRoutes/PrivateRoute';
 import MyRecommendations from '../pages/MyRecommendations';
 import AddQueries from '../pages/AddQueries';
+import Home from '../Pages/Home';
+// import Home from '../pages/Home';
 
 
   const router = createBrowserRouter([
@@ -24,11 +27,13 @@ import AddQueries from '../pages/AddQueries';
       children:[
       {
         path:'/',
-        element:<Home/>
+        element:<Home/>,
+        loader:()=>fetch('http://localhost:5000/recentQueries')
         },
       {
         path:'/queries',
-        element:<Queries/>
+        element:<Queries/>,
+        loader:()=>fetch('http://localhost:5000/allQueries')
         },
       {
         path:'/recommendationsForMe',

@@ -1,21 +1,55 @@
-import React from 'react';
-import banner from '../assets/banner-1.avif'
-import { NavLink } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+// import banner from '../assets/banner-1.avif'
+import { Link, NavLink } from 'react-router-dom';
 import axios from 'axios'
+import { AuthContext } from '../provider/AuthProvider';
+import QueryCard from '../components/queryCard';
+import MyQueryCard from '../components/MyQueryCard';
 
 const MyQueries = () => {
-  axios.get('http://localhost:5000/allQueries')
-  .then(res=>console.log(res.data))
+  const {user} =useContext(AuthContext)
+  console.log(user?.email)
+  const [queries,setQueries] =useState([])
+ useEffect(()=>{
+  axios.get(`http://localhost:5000/myQueries/${user?.email}`)
+  .then(res=>{
+    console.log(res.data)
+  setQueries(res.data)
+  })
+  .catch(err=>console.log(err))
+ },[])
+
+ if (queries.length ===0) {
+  return (
+  <div className='flex justify-center items-center h-[40vh]'>
+    <div className="text-center space-y-4">
+    <h2 className='text-3xl'>No relevant queries found.</h2>
+    <button className='btn btn-accent'><Link to='/addQueries'> Add Query</Link></button>
+    </div>
+  </div>)
+ }
     return (
        
-          <div className="relative bg-banner  w-full h-[80vh] bg-no-repeat bg-cover bg-center ">
+         <div className="">
+          {/* Add Query Banner */}
+           <div className="relative bg-banner  w-full h-[80vh] bg-no-repeat bg-cover bg-center ">
+            {/*  */}
              <div className='absolute flex justify-center items-center bg-gradient-to-t from-[#0000004a] to-[#00000083] inset-0'>
                <div className="text-center mx-auto w-1/2">
                <h2 className='text-xl text-white text '>  Evaluating the Impact of Modern Technology  on the Performance and Efficiency of  Retail Businesses in Today's Market</h2>
               <NavLink to='/addQueries'> <button className='btn mt-7'>Add Query </button></NavLink>
                </div>
+               {/*  */}
+                 </div>
           </div>
+          {/* my queries */}
+          <h2 className='text-xl font-semibold my-6'>My Queries</h2>
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+        {
+          queries?.map(query => <MyQueryCard key={query?._id} query={query}></MyQueryCard>)
+         }
         </div>
+         </div>
     );
 };
 
