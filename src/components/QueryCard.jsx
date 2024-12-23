@@ -1,4 +1,6 @@
 import React from 'react';
+import { format } from 'date-fns';
+import { NavLink } from 'react-router-dom';
 // {
 //     "_id": "6767e66d7e1dc87f5825e9eb",
 //     "userName": "gddgfdgd",
@@ -14,8 +16,9 @@ import React from 'react';
 //     "recommendationCount": 0
 // }
 const QueryCard = ({query}) => {
-    const {imageUrl,productName,title,boycottingDetails,currentDate,currentTime,recommendationCount,email,userName} = query
+    const {imageUrl,productName,title,boycottingDetails,currentDate,currentTime,recommendationCount,email,userName,_id} = query
     // console.log(query)
+   
     if (!query) {
         return <p></p>
     }
@@ -30,7 +33,8 @@ const QueryCard = ({query}) => {
         <div className="card-body ">
             <div className="flex justify-between items-center">
                 <h2>{currentDate}</h2>
-                <h2>{currentTime}</h2>
+                {/* <h2>{currentTime}</h2> */}
+                <h2>{format(currentTime, "HH:mm:ss")}</h2>
             </div>
           <h2 className="card-title">Product Name: {productName}</h2>
           <h3>Title:{title}</h3>
@@ -41,7 +45,8 @@ const QueryCard = ({query}) => {
           <p>Boycotting Details: {boycottingDetails?.substr(0,17)}...</p>
           <h3>Recommendation Count: {recommendationCount}</h3>
           <div className="card-actions">
-            <button className="btn btn-primary">Recommend</button>
+          <NavLink to={`/queryDetails/${_id}`}> <button className="btn btn-primary">Recommend</button></NavLink>
+            {/* <button className="btn btn-primary"></button> */}
           </div>
         </div>
       </div>

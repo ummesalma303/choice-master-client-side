@@ -1,29 +1,13 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../provider/AuthProvider';
-import axios from 'axios'
-const AddQueries = () => {
-    const {user} =useContext(AuthContext);
+import axios from 'axios';
+import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
-   
-    // console.log(currentDate,currentTime)
-
-
-
-
-    
-    // console.log(user?.photoURL)
-    const handleQueries = e =>{
-      const timeElapsed = Date.now();
-      const today = new Date(timeElapsed)
-      // console.log(today)
-      const currentDate = today.toLocaleDateString()
-      const currentTime = today.getTime()
-      
-      // console.log(currentDate)
-      // console.log(currentTime)
-      // const currentTime = today.toLocaleTimeString()
-
-
+const UpdateQuery = () => {
+    const {id} =useParams();
+    const navigate = useNavigate()
+    console.log(id)
+    const HandleUpdateQuery = e =>{
         e.preventDefault()
         const form = e.target
         const productName =form.productName.value
@@ -32,39 +16,38 @@ const AddQueries = () => {
         const title =form.title.value
         const boycottingDetails =form.boycottingDetails.value
 
-        const queryData ={
-            userName: user?.displayName,
-            email: user?.email,
-            userImage: user?.photoURL,
-
+        const updateData ={
             productName,
             productBrand,
             imageUrl,
             title,
             boycottingDetails,
-            currentDate,
-            currentTime,
-            recommendationCount:0,
+            // currentDate,
+            // currentTime,
+            // recommendationCount:0,
 
         }
-        console.log(queryData)
+        // console.log(UpdateQueryData)
 
-        axios.post('http://localhost:5000/add-queries',queryData)
-        .then(res=>{
-            console.log(res.data)
-            alert('your data successfully added')
-        })
-           
-        .catch(err=>console.log(err))
-        
+        axios.put(`http://localhost:5000/updateQuery/${id}`,updateData)
+  .then(res=>{
+    console.log(res.data)
+//   setQueries(res.data)
+if (res.data.modifiedCount>0) {
+    Swal.fire({
+        title: "The Internet?",
+        text: "That thing is still around?",
+        icon: "question"
+      });
+    navigate('/')
+}
+  })
+  .catch(err=>console.log(err))
     }
     return (
-        <div>
-        {/* form */}
-        {/* <div className="hero "> */}
         <div className=" flex justify-center items-center my-9">
           <div className="card bg-base-100 w-full max-w-xl border border-[#00000033]">
-            <form onSubmit={handleQueries} className="card-body ">
+            <form onSubmit={HandleUpdateQuery} className="card-body ">
               {/* Product Name  */}
               <div className="form-control">
                 <label className="label">
@@ -75,7 +58,7 @@ const AddQueries = () => {
                   name="productName"
                   placeholder="Product Name "
                   className="input input-bordered"
-                  required
+                required
                 />
               </div>
               {/* Product Brand */}
@@ -102,7 +85,7 @@ const AddQueries = () => {
                   name="imageUrl"
                   placeholder="Product Image-URL "
                   className="input input-bordered"
-                  required
+                 required
                 />
               </div>
               {/* Query TItle */}
@@ -115,7 +98,7 @@ const AddQueries = () => {
                   name="title"
                   placeholder="Query TItle"
                   className="input input-bordered"
-                  required
+                required
                 />
               </div>
               
@@ -125,18 +108,17 @@ const AddQueries = () => {
                   <span className="label-text">Boycotting Reason Details:</span>
                 </label>
 
-                <textarea  className='input input-bordered' name="boycottingDetails"  placeholder="Boycotting Reason Details:" id=""></textarea>
+                <textarea  className='input input-bordered' name="boycottingDetails"  placeholder="Boycotting Reason Details:" id="" required></textarea>
               </div>
               <div className="form-control mt-6">
                 <button type="submit" className="btn btn-primary">
-                  Add Query
+                  Update Query
                 </button>
               </div>
             </form>
           </div>
         </div>
-      </div>
     );
 };
 
-export default AddQueries;
+export default UpdateQuery;

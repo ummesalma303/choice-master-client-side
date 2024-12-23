@@ -8,16 +8,21 @@ import MyQueryCard from '../components/MyQueryCard';
 
 const MyQueries = () => {
   const {user} =useContext(AuthContext)
-  console.log(user?.email)
+  // console.log(user?.email)
   const [queries,setQueries] =useState([])
+
+  
  useEffect(()=>{
+  fetchAllQueries()
+ },[user])
+ const fetchAllQueries = () => {
   axios.get(`http://localhost:5000/myQueries/${user?.email}`)
   .then(res=>{
     console.log(res.data)
   setQueries(res.data)
   })
   .catch(err=>console.log(err))
- },[])
+ }
 
  if (queries.length ===0) {
   return (
@@ -46,7 +51,7 @@ const MyQueries = () => {
           <h2 className='text-xl font-semibold my-6'>My Queries</h2>
                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
         {
-          queries?.map(query => <MyQueryCard key={query?._id} query={query}></MyQueryCard>)
+          queries?.map(query => <MyQueryCard key={query?._id} query={query} fetchAllQueries={fetchAllQueries}></MyQueryCard>)
          }
         </div>
          </div>

@@ -17,6 +17,7 @@ import MyRecommendations from '../pages/MyRecommendations';
 import AddQueries from '../pages/AddQueries';
 import Home from '../Pages/Home';
 import QueryDetails from '../pages/QueryDetails';
+import UpdateQuery from '../pages/UpdateQuery';
 // import Home from '../pages/Home';
 
 
@@ -57,7 +58,10 @@ import QueryDetails from '../pages/QueryDetails';
         element:<PrivateRoute><QueryDetails/></PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/allQueries/${params.id}`)
         },
-
+        {
+          path:'/updateQuery/:id',
+          element:<UpdateQuery></UpdateQuery>
+        },
       {
         path:'/login',
         element:<Login/>
