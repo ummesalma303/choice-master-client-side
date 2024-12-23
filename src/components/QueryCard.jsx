@@ -18,10 +18,9 @@ import { NavLink } from 'react-router-dom';
 const QueryCard = ({query}) => {
     const {imageUrl,productName,title,boycottingDetails,currentDate,currentTime,recommendationCount,email,userName,_id} = query
     // console.log(query)
-   
-    if (!query) {
-        return <p></p>
-    }
+
+  //  const time = currentTime.toLocaleTimeString()
+  //   console.log(time)
     return (
         <div className="card bg-base-100  shadow-xl">
         <figure className="px-10 pt-10">
@@ -34,7 +33,7 @@ const QueryCard = ({query}) => {
             <div className="flex justify-between items-center">
                 <h2>{currentDate}</h2>
                 {/* <h2>{currentTime}</h2> */}
-                <h2>{format(currentTime, "HH:mm:ss")}</h2>
+                <h2>{format(currentTime, "pp	")}</h2>
             </div>
           <h2 className="card-title">Product Name: {productName}</h2>
           <h3>Title:{title}</h3>

@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import RecommendationForm from '../components/RecommendationForm';
+// import RecommendationForm from '../components/RecommendationForm';
 import { AuthContext } from '../provider/AuthProvider';
 import { format } from 'date-fns';
+import axios from 'axios';
+import UpdateQuery from './UpdateQuery';
 
 const QueryDetails = () => {
   const {user} =useContext(AuthContext)
@@ -16,8 +18,8 @@ const handleQueryForm = e =>{
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed)
 
-  // const currentTime = today.getTime()
-  console.log(today.toLocaleTimeString())
+  const currentTime = today.getTime()
+  // console.log(today.toLocaleTimeString())
 
   e.preventDefault()
   const form = e.target
@@ -26,7 +28,7 @@ const handleQueryForm = e =>{
   const title =form.title.value
   const reason =form.reason.value
   
-  const queryData ={
+  const recommendationData ={
     queryId:_id,
     queryTitle:title,
 
@@ -45,8 +47,14 @@ const handleQueryForm = e =>{
       recommendationCount:0,
 
   }
-      console.log(queryData)
-
+      console.log(currentTime)
+      axios.post('http://localhost:5000/add-recommendation',recommendationData)
+      .then(res=>{
+          console.log(res.data)
+          alert('your data successfully added')
+      })
+         
+      .catch(err=>console.log(err))
 }
     
     return (

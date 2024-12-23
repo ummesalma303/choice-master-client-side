@@ -7,10 +7,10 @@ const MyQueryCard = ({query,fetchAllQueries}) => {
     const {imageUrl,productName,title,boycottingDetails,currentDate,currentTime,email,userName,_id} = query || {}
     // console.log(query)
     // console.log(currentTime)
+
+    
     const handleDelete = (id)=>{
      
-
-
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
