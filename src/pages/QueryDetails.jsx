@@ -6,17 +6,33 @@ import { format } from 'date-fns';
 import axios from 'axios';
 import UpdateQuery from './UpdateQuery';
 import AllRecommendation from '../components/AllRecommendation';
-import { useQuery } from '@tanstack/react-query';
+import {  useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 const QueryDetails = () => {
   const {user} =useContext(AuthContext)
+  const queryClient = useQueryClient()
   // const [recommendations,setRecommendations] = useState([])
     const {imageUrl,productName,title,boycottingDetails,currentDate,currentTime,email,userName,_id,
         userImage} =useLoaderData()
   
 
+
+        const {mutateAsync} = useMutation({
+          mutationFn: async recommendationData => {
+            await axios.post('http://localhost:5000/add-recommendation',recommendationData) 
+            // return axios.post('/todos', newTodo)
+          },
+          onSuccess: () => {
+            console.log('data saved')
+            queryClient.invalidateQueries({ queryKey: ['recommendations'] })
+          },
+          onError: err => {
+            console.log(err)
+          },
+        })
+
 /* --------------------------- recommendation form -------------------------- */
-const handleQueryForm = e =>{
+const handleQueryForm = async e =>{
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed)
 
@@ -49,16 +65,17 @@ const handleQueryForm = e =>{
       // recommendationCount:0,
 
   }
-      // console.log(currentTime)
-     
-      axios.post('http://localhost:5000/add-recommendation',recommendationData)
-      .then(res=>{
-          console.log(res.data)
-          alert('your data successfully added')
-      })
-         
-      .catch(err=>console.log(err))
+      
+
+      try {
+        await mutateAsync(recommendationData)
+        form.reset()
+      } catch (err) {
+        console.log(err)
+        
+      }
 }
+
 
 /* --------------------------- all recommendation --------------------------- */
 // useEffect(()=>{
