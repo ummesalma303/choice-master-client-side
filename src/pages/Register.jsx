@@ -101,7 +101,7 @@ const Register = () => {
               />
               <label className="label">
                 <p className="label-text-alt x">
-                  If you have already an account.Ple <Link
+                  If you have already an account.Please <Link
                     to="/login"
                     className="text-blue-600 link link-hover"
                   > login

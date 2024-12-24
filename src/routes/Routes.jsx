@@ -35,7 +35,7 @@ import UpdateQuery from '../pages/UpdateQuery';
       {
         path:'/queries',
         element:<Queries/>,
-        loader:()=>fetch('http://localhost:5000/allQueries')
+        // loader:()=>fetch('http://localhost:5000/allQueries')
         },
       {
         path:'/recommendationsForMe',

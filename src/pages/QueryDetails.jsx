@@ -1,16 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 // import RecommendationForm from '../components/RecommendationForm';
 import { AuthContext } from '../provider/AuthProvider';
 import { format } from 'date-fns';
 import axios from 'axios';
 import UpdateQuery from './UpdateQuery';
+import AllRecommendation from '../components/AllRecommendation';
+import { useQuery } from '@tanstack/react-query';
 
 const QueryDetails = () => {
   const {user} =useContext(AuthContext)
-
+  // const [recommendations,setRecommendations] = useState([])
     const {imageUrl,productName,title,boycottingDetails,currentDate,currentTime,email,userName,_id,
-        recommendationCount,userImage} =useLoaderData()
+        userImage} =useLoaderData()
   
 
 /* --------------------------- recommendation form -------------------------- */
@@ -44,10 +46,11 @@ const handleQueryForm = e =>{
       reason,
       recommendationName,
       currentTime,
-      recommendationCount:0,
+      // recommendationCount:0,
 
   }
-      console.log(currentTime)
+      // console.log(currentTime)
+     
       axios.post('http://localhost:5000/add-recommendation',recommendationData)
       .then(res=>{
           console.log(res.data)
@@ -56,9 +59,20 @@ const handleQueryForm = e =>{
          
       .catch(err=>console.log(err))
 }
-    
+
+/* --------------------------- all recommendation --------------------------- */
+// useEffect(()=>{
+  
+//     .then(res=>setRecommendations(res.data))
+//     .catch(err=>console.log(err))
+//    },[])
+   const {data:recommendations} = useQuery({queryKey: ['recommendations'], queryFn: async()=>{
+        const {data} = await   axios.get(`http://localhost:5000/recommendations/${_id}`)
+        return data
+   }})
     return (
-        <div className='max-w-7xl mx-auto my-14 md:flex justify-between'>
+       <div className="max-w-7xl mx-auto my-14 space-y-11">
+         <div className='  md:flex justify-between'>
             {/* query details */}
             <div className="md:w-[45%] card bg-base-100 shadow-xl border-2 border-[#0008]">
         <figure className="px-10 pt-10">
@@ -82,12 +96,12 @@ const handleQueryForm = e =>{
                 <img className='w-12 h-12 rounded-full' src={userImage} alt="" />
             </div>
           <p>Boycotting Details: {boycottingDetails}...</p>
-          <p>Recommendation Count: {recommendationCount}</p>
+          {/* <p>Recommendation Count: {recommendationCount}</p> */}
          
           <div className="card-actions">
            {/* <NavLink to={`/queryDetails/${_id}`}> <button className="btn btn-primary">View Details</button></NavLink> */}
-            <button className="btn btn-primary">Update</button>
-            <button className="btn btn-primary">Delete </button>
+            {/* <button className="btn btn-primary">Update</button>
+            <button className="btn btn-primary">Delete </button> */}
           </div>
         </div>
         </div>
@@ -161,8 +175,34 @@ const handleQueryForm = e =>{
         </div>
 </div>
      </div>
+
+    
       </div>
+         {/* all recommendation */}
+      <div className="">
+        <h2 className='text-2xl my-4 font-semibold'>Recommendations:</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10  border-[1px] border-[#0000003f] p-5 rounded-lg">
+     {
+      recommendations?.map(recommendation=><AllRecommendation key={recommendation._id} recommendation={recommendation}></AllRecommendation>)
+     }
+     
+      </div>
+      </div>
+       </div>
     );
 };
 
 export default QueryDetails;
+
+
+// const QueryDetails = () => {
+//   const {id} = useParams()
+//   const {user} =useContext(AuthContext);
+//   const [queries,setQueries] =useState({})
+// useEffect(()=>{
+//   fetchQueryData()
+// },[id])
+// const fetchQueryData=async()=>{
+//   const {data} = await axios.get(`http://localhost:5000/allQueries/${id}`)
+//   setQueries(data) 
+// }

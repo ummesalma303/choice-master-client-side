@@ -4,7 +4,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2'
 const MyQueryCard = ({query,fetchAllQueries}) => {
-    const {imageUrl,productName,title,boycottingDetails,currentDate,currentTime,email,userName,_id} = query || {}
+    const {imageUrl,productName,title,boycottingDetails,currentDate,currentTime,email,userName,_id,
+      recommendationCount} = query || {}
     // console.log(query)
     // console.log(currentTime)
 
@@ -63,6 +64,7 @@ const MyQueryCard = ({query,fetchAllQueries}) => {
                 <h2>User Name: {userName}</h2>
                 <h2>User Email:{email}</h2>
             </div>
+            <h3>{recommendationCount}</h3>
           <p>Boycotting Details: {boycottingDetails?.substr(0,17)}...</p>
          
           <div className="card-actions">

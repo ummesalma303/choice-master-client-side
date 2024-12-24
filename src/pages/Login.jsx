@@ -70,10 +70,10 @@ const Login = () => {
                  />
                  <label className="label">
                    <p className="label-text-alt x">
-                     If you have already an account.Ple <Link
-                       to="/login"
+                     If you are a new.Please <Link
+                       to="/register"
                        className="text-blue-600 link link-hover"
-                     > login
+                     > Register
                      </Link>
                    </p>
                  </label>
