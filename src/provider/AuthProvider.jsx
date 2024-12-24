@@ -1,6 +1,8 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.init';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export const AuthContext = createContext(null)
 const provider = new GoogleAuthProvider();
@@ -19,9 +21,18 @@ const AuthProvider = ({ children }) => {
     const signOutUser = () => {
         setLoading(true)
         signOut(auth).then((res) => {
-            console.log(res)
+            Swal.fire({
+                title: "Success",
+                text: "Sign out Successful",
+                icon: "success"
+              });
+             
           }).catch((error) => {
-            console.log(error)
+            Swal.fire({
+                   icon: "error",
+                   title: `${error.message}`,
+                   text: "Something went wrong!",
+                 });
           });
     }
     /* --------------------- sign in with email and password -------------------- */
@@ -38,7 +49,26 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
+            console.log(currentUser?.email)
             // console.log("current user =>", currentUser)
+            if (currentUser?.email) {
+                const user ={email:currentUser?.email}
+
+            axios.post('http://localhost:5000/jwt',user,  { withCredentials: true })
+            .then(res=>{
+                console.log(res.data)
+                setLoading(false)
+            })
+            .catch(err=>console.log(err))
+            }else{
+                axios.post('http://localhost:5000/logOut',{},  { withCredentials: true })
+                .then(res=>{
+                    
+                    setLoading(false)
+                    console.log('log out',res.data)})
+                .catch(err=>console.log(err))
+            }
+
             setLoading(false)
         })
         return ()=> unsubscribe()

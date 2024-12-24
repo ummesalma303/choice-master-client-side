@@ -14,7 +14,7 @@ const QueryCard = ({query}) => {
           <img
             src={imageUrl?imageUrl:''}
             alt={productName}
-            className="rounded-xl aspect-video object-cover" />
+            className="rounded-xl aspect-video object-cover w-full" />
         </figure>
         <div className="card-body ">
             <div className="flex justify-between items-center">

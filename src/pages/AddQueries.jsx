@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import axios from 'axios'
+import Swal from 'sweetalert2';
 const AddQueries = () => {
     const {user} =useContext(AuthContext);
 
@@ -52,7 +53,12 @@ const AddQueries = () => {
         axios.post('http://localhost:5000/add-queries',queryData)
         .then(res=>{
             console.log(res.data)
-            alert('your data successfully added')
+            // alert('your data successfully added')
+            // Swal.fire({
+            //   title: "Success",
+            //   text: "User successfully login",
+            //   icon: "success"
+            // });
         })
            
         .catch(err=>console.log(err))

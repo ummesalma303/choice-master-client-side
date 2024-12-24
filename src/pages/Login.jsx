@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const Login = () => {
   const { loginWithGoogle,loginUser } = useContext(AuthContext);
+  const from = location?.state || '/'
   const navigate =useNavigate()
-  // const from = location?.state || '/'
 
   const handleLogin =e=>{
     e.preventDefault()
@@ -16,16 +17,45 @@ const Login = () => {
   //  console.log(email,password)
     loginUser(email,password)
     .then(res => {
-      console.log("user successfully login")})
-      navigate('/')
-    .catch(err=>console.log(err))
+     
+      Swal.fire({
+        title: "Success",
+        text: "Signin Successful",
+        icon: "success"
+      });
+      navigate(from, { replace: true })
+    })
+    .catch(err=>{
+      Swal.fire({
+        icon: "error",
+        title: `${err.message}`,
+        text: "Something went wrong!",
+      });
+      // console.log(err)
+    })
   }
 
   // google login
   const handleGoogle = () => {
+    const navigate = useNavigate()
     loginWithGoogle()
-      .then(res => console.log(res.user))
-    .catch(err=>console.log(err))
+      .then(res => {
+        
+        Swal.fire({
+          title: "Success",
+          text: "Signin Successful",
+          icon: "success"
+        });
+        navigate(from, { replace: true })
+      })
+    .catch(err=>{
+      Swal.fire({
+        icon: "error",
+        title: `${err.message}`,
+        text: "Something went wrong!",
+      });
+      // console.log(err)
+    })
   }
   
     return (

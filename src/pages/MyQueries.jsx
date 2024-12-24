@@ -5,9 +5,11 @@ import axios from 'axios'
 import { AuthContext } from '../provider/AuthProvider';
 import QueryCard from '../components/queryCard';
 import MyQueryCard from '../components/MyQueryCard';
+// import UseAxiosSecure from '../hooks/UseAxiosSecure';
 
 const MyQueries = () => {
   const {user} =useContext(AuthContext)
+ 
   // console.log(user?.email)
   const [queries,setQueries] =useState([])
 

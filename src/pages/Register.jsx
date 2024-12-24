@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import auth from "../firebase/firebase.init";
 import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const {newUser,setUser,user} = useContext(AuthContext)
@@ -22,20 +23,32 @@ const Register = () => {
 
         newUser(email,password)
         .then(res =>{
-            alert("user successfully sign up")
+            // alert("user successfully sign up")
 
-             console.log(res.user)
+            //  console.log(res.user)
             
              updateProfile(auth.currentUser, updateData)
              .then(res => {
                 setUser({...user,...updateData})
-                console.log(res)})
-                .catch(err=>console.log(err))
-                
+                Swal.fire({
+                  title: "Success",
+                  text: "SignUP Successful",
+                  icon: "success"
+                });
+                // navigate(from, { replace: true })
+                navigate('/')
+              })
+                .catch(err=>{
+                  console.log(err)
+                  Swal.fire({
+                    icon: "error",
+                    title: 'text',
+                    text: `${err.message}`,
+                  });
+                })
             })
             
-            //  form.reset()
-             navigate('/')
+            //  navigate('/')
               
         .catch(err=>console.log(err))
        
