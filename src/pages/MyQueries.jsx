@@ -5,11 +5,12 @@ import axios from 'axios'
 import { AuthContext } from '../provider/AuthProvider';
 import QueryCard from '../components/queryCard';
 import MyQueryCard from '../components/MyQueryCard';
+import useAxiosSecure from '../hooks/UseAxiosSecure';
 // import UseAxiosSecure from '../hooks/UseAxiosSecure';
 
 const MyQueries = () => {
   const {user} =useContext(AuthContext)
- 
+  const axiosSecure = useAxiosSecure()
   // console.log(user?.email)
   const [queries,setQueries] =useState([])
 
@@ -18,7 +19,7 @@ const MyQueries = () => {
   fetchAllQueries()
  },[user])
  const fetchAllQueries = () => {
-  axios.get(`http://localhost:5000/myQueries/${user?.email}`)
+  axiosSecure.get(`/myQueries/${user?.email}`)
   .then(res=>{
     console.log(res.data)
   setQueries(res.data)

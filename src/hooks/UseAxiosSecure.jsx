@@ -1,5 +1,7 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const  axiosSecure = axios.create({
     baseURL: 'http://localhost:5000',
@@ -7,8 +9,22 @@ const  axiosSecure = axios.create({
   });
 
 
-const UseAxiosSecure = () => {
+const useAxiosSecure = () => {
+  const {signOutUser} = useContext(AuthContext);
+  const navigate = useNavigate()
+  useEffect(()=>{
+    axiosSecure.interceptors.response.use(response=>{
+      return response
+    },err=>{
+      if (err.response.status===401 || err.response.status===403) {
+        // return
+        // console.log('forbidden')
+        signOutUser()
+        navigate('/login')
+      }
+    })
+  },[])
     return  axiosSecure
 };
 
-export default UseAxiosSecure;
+export default useAxiosSecure;

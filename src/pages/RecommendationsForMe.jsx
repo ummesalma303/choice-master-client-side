@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import axios from 'axios';
 import RecommendationMeTable from './RecommendationMeTable';
+import useAxiosSecure from '../hooks/UseAxiosSecure';
 
 const RecommendationsForMe = () => {
+  const axiosSecure = useAxiosSecure()
     const [ recommendations,setRecommendations] = useState([])
     // const [recommendations,setRecommendations] = useState([])
     const {user} = useContext(AuthContext)
@@ -13,7 +15,7 @@ const RecommendationsForMe = () => {
       fetchAllQueries()
      },[user])
      const fetchAllQueries = () => {
-      axios.get(`http://localhost:5000/myRecommendations/${user?.email}`)
+      axiosSecure.get(`/myRecommendations/${user?.email}`)
       .then(res=>{
         console.log(res.data)
         setRecommendations(res.data)
