@@ -54,14 +54,14 @@ const AuthProvider = ({ children }) => {
             if (currentUser?.email) {
                 const user ={email:currentUser?.email}
 
-            axios.post('http://localhost:5000/jwt',user,  { withCredentials: true })
+            axios.post('https://b10a11-server-side-ummesalma303.vercel.app/jwt',user,  { withCredentials: true })
             .then(res=>{
                 console.log(res.data)
                 setLoading(false)
             })
             .catch(err=>console.log(err))
             }else{
-                axios.post('http://localhost:5000/logOut',{},  { withCredentials: true })
+                axios.post('https://b10a11-server-side-ummesalma303.vercel.app/logOut',{},  { withCredentials: true })
                 .then(res=>{
                     
                     setLoading(false)

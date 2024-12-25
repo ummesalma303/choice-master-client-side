@@ -20,7 +20,7 @@ const QueryDetails = () => {
 
         const {mutateAsync} = useMutation({
           mutationFn: async recommendationData => {
-            await axios.post('http://localhost:5000/add-recommendation',recommendationData) 
+            await axios.post('https://b10a11-server-side-ummesalma303.vercel.app/add-recommendation',recommendationData) 
             // return axios.post('/todos', newTodo)
           },
           onSuccess: () => {
@@ -95,7 +95,7 @@ const handleQueryForm = async e =>{
 //     .catch(err=>console.log(err))
 //    },[])
    const {data:recommendations} = useQuery({queryKey: ['recommendations'], queryFn: async()=>{
-        const {data} = await   axios.get(`http://localhost:5000/recommendations/${_id}`)
+        const {data} = await   axios.get(`https://b10a11-server-side-ummesalma303.vercel.app/recommendations/${_id}`)
         return data
    }})
     return (
@@ -231,6 +231,6 @@ export default QueryDetails;
 //   fetchQueryData()
 // },[id])
 // const fetchQueryData=async()=>{
-//   const {data} = await axios.get(`http://localhost:5000/allQueries/${id}`)
+//   const {data} = await axios.get(`https://b10a11-server-side-ummesalma303.vercel.app/allQueries/${id}`)
 //   setQueries(data) 
 // }

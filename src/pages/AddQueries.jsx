@@ -52,7 +52,7 @@ const AddQueries = () => {
         }
         // console.log(queryData)
 
-        axios.post('http://localhost:5000/add-queries',queryData)
+        axios.post('https://b10a11-server-side-ummesalma303.vercel.app/add-queries',queryData)
         .then(res=>{
             // console.log(res.data)
             // alert('your data successfully added')

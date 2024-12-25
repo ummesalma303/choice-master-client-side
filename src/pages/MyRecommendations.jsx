@@ -17,7 +17,7 @@ const MyRecommendations = () => {
     fetchAllRecommendations()
    },[user])
    const fetchAllRecommendations = () => {
-    axiosSecure.get(`http://localhost:5000/myRecommends/${user?.email}`)
+    axiosSecure.get(`https://b10a11-server-side-ummesalma303.vercel.app/myRecommends/${user?.email}`)
     .then(res=>{
       console.log(res.data)
     setRecommendations(res.data)

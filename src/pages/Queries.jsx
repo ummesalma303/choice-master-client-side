@@ -8,7 +8,7 @@ const Queries = () => {
     const [search,setSearch]= useState('')
     const [column,setColumn]= useState(3)
     useEffect(()=>{
-    axios.get(`http://localhost:5000/allQueries?search=${search}`)
+    axios.get(`https://b10a11-server-side-ummesalma303.vercel.app/allQueries?search=${search}`)
   .then(res=>setQueries(res.data))
   console.log(queries)
     },[search])
