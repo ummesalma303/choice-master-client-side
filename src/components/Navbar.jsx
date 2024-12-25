@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { NavLink } from 'react-router-dom';
-import logo from '../assets/logo.png'
+// import logo from '../assets/logo.png'
+import { MdOutlineQueryStats } from 'react-icons/md';
 const Navbar = () => {
     const {user,signOutUser} = useContext(AuthContext);
     // console.log(user)
@@ -19,8 +20,8 @@ const Navbar = () => {
     }
     </>
     return (
-        <div className="bg-blue-950 text-white ">
-            <div className="max-w-7xl bg- mx-auto navbar ">
+        <div className=" bg-gradient-to-r from-blue-600 to-[#0a1124] text-white ">
+            <div className="w-11/12  mx-auto navbar ">
             <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,13 +40,14 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-black">
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box  mt-3 w-52 p-2 shadow  z-20 text-black">
                             <li>{ link}</li>
               
             </ul>
           </div>
-          <img src={logo} alt="" />
-          <a className="btn btn-ghost text-xl">Choice Master</a>
+          {/* <img src={logo} alt="" /> */}
+         <h2 className='border-2 border-yellow-300 p-2 rounded-full'> <MdOutlineQueryStats size={25}/></h2>
+          <a className="btn btn-ghost text-xl hidden md:flex">Choice Master</a>
         </div>
         
                   <div className="navbar-center hidden lg:flex">

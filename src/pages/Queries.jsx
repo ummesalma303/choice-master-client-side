@@ -18,21 +18,31 @@ const changeColumns=(num)=>{
     setColumn(num)
 }
     return (
-        <div className='max-w-7xl mx-auto '>
-            {/* <h2>All Queries</h2> */}
-            <div className=" mx-auto flex justify-center mt-8 space-x-3">
+        <div className='w-11/12 mx-auto my-14'>
+           
+
+           <div className="flex flex-wrap items-center">
+             <div className="">
+                
+             <h2 className='text-3xl  font-semibold text-center md:text-left'>All Queries</h2>
+             </div>
+
+             <div className=" mx-auto  space-x-3 ">
             <input onChange={(e)=> setSearch(e.target.value)} value={search} type="text" placeholder="Search Here....." className="input input-bordered w-full max-w-xs"  />
             {/* <button type='submit' className='btn btn-accent text-white'>Search</button> */}
             </div>
-
-            <div className=" space-x-3">
+            {/* <h2>Queries</h2> */}
+           <div className="*:text-white space-x-3 text-center md:text-left">
                 <button className='btn btn-accent' onClick={()=>changeColumns(3)}> column 3 </button>
                 <button className='btn btn-accent'  onClick={()=>changeColumns(2)}> column 2 </button>
                 <button className='btn btn-accent'  onClick={()=>changeColumns(1)}> column 1 </button>
             </div>
+           </div>
 
+                      <div className={`grid grid-cols-1 md:grid-cols-2 ${column === 3 &&"lg:grid-cols-3"} ${column === 2 &&"lg:grid-cols-2"} ${column === 1 &&"lg:grid-cols-1"}`}>
 
-            <div className={`grid grid-cols-1 md:grid-cols-2 ${column === 3 &&"lg:grid-cols-3"} ${column === 2 &&"lg:grid-cols-2"} ${column === 1 &&"lg:grid-cols-1"}`}>
+{/* 
+            <div className={`grid gap-6 mt-6 lg:grid-cols-3 md:grid-cols-2 ${column === 3 ? 'grid-cols-3 ' : column === 2 ? 'grid-cols-2' : 'grid-cols-1'}`}> */}
         {
           queries?.map(query => <QueryCard key={query?._id} query={query}></QueryCard>)
          }

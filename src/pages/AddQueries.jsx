@@ -2,7 +2,9 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import axios from 'axios'
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 const AddQueries = () => {
+  const navigate = useNavigate()
     const {user} =useContext(AuthContext);
 
    
@@ -48,20 +50,28 @@ const AddQueries = () => {
             recommendationCount:0,
 
         }
-        console.log(queryData)
+        // console.log(queryData)
 
         axios.post('http://localhost:5000/add-queries',queryData)
         .then(res=>{
-            console.log(res.data)
+            // console.log(res.data)
             // alert('your data successfully added')
-            // Swal.fire({
-            //   title: "Success",
-            //   text: "User successfully login",
-            //   icon: "success"
-            // });
+            Swal.fire({
+              title: "Success",
+              text: "Your query successfully added",
+              icon: "success"
+            });
+            navigate('/myQueries ')
         })
            
-        .catch(err=>console.log(err))
+        .catch(err=>{
+          Swal.fire({
+            icon: "error",
+            title: 'unsuccess added',
+            text: `${err.message}`,
+          });
+          // console.log(err)
+        })
         
     }
     return (

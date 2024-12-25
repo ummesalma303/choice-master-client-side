@@ -7,6 +7,7 @@ import axios from 'axios';
 import UpdateQuery from './UpdateQuery';
 import AllRecommendation from '../components/AllRecommendation';
 import {  useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import Swal from 'sweetalert2';
 
 const QueryDetails = () => {
   const {user} =useContext(AuthContext)
@@ -24,10 +25,20 @@ const QueryDetails = () => {
           },
           onSuccess: () => {
             console.log('data saved')
+
+              Swal.fire({
+                          title: "Success",
+                          text: "Your recommendation successfully added",
+                          icon: "success"
+                        });
             queryClient.invalidateQueries({ queryKey: ['recommendations'] })
           },
           onError: err => {
-            console.log(err)
+            Swal.fire({
+              icon: "error",
+              title: 'unsuccess added',
+              text: `${err.message}`,
+            });
           },
         })
 
@@ -88,7 +99,7 @@ const handleQueryForm = async e =>{
         return data
    }})
     return (
-       <div className="max-w-7xl mx-auto my-14 space-y-11">
+       <div className="w-11/12 mx-auto my-14 space-y-11">
          <div className='  md:flex justify-between'>
             {/* query details */}
             <div className="md:w-[45%] card bg-base-100 shadow-xl border-2 border-[#0008]">

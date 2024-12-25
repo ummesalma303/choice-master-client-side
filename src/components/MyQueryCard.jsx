@@ -28,7 +28,7 @@ const MyQueryCard = ({query,fetchAllQueries}) => {
       .then(res=>{
         console.log(res.data.deletedCount)
         if (res.data.deletedCount>0) {
-          console.log(res.data.acknowledged)
+          // console.log(res.data.acknowledged)
           
           Swal.fire({
         title: "Deleted!",
@@ -64,7 +64,7 @@ const MyQueryCard = ({query,fetchAllQueries}) => {
                 <h2>User Name: {userName}</h2>
                 <h2>User Email:{email}</h2>
             </div>
-            <h3>{recommendationCount}</h3>
+            <h3>Recommendation Count: {recommendationCount}</h3>
           <p>Boycotting Details: {boycottingDetails?.substr(0,17)}...</p>
          
           <div className="card-actions">

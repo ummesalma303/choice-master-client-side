@@ -7,13 +7,14 @@ import { useLoaderData } from 'react-router-dom';
 import LogoSec from '../components/LogoSec';
 import CommunitySec from '../components/CommunitySec';
 import ContactSec from '../components/ContactSec';
+import Banner from '../components/Banner';
 
 const Home = () => {
     const queries = useLoaderData()
    
     return (
         <div>
-           <Slider></Slider>
+          <Banner></Banner>
              {/* logos */}
              <LogoSec></LogoSec>
            {/* Recent Queries section */}

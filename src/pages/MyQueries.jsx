@@ -40,7 +40,7 @@ const MyQueries = () => {
        
          <div className="">
           {/* Add Query Banner */}
-           <div className="relative bg-banner  w-full h-[80vh] bg-no-repeat bg-cover bg-center ">
+           <div className="relative bg-banner w-full h-[80vh] bg-no-repeat bg-cover bg-center ">
             {/*  */}
              <div className='absolute flex justify-center items-center bg-gradient-to-t from-[#0000004a] to-[#00000083] inset-0'>
                <div className="text-center mx-auto w-1/2">
@@ -51,12 +51,14 @@ const MyQueries = () => {
                  </div>
           </div>
           {/* my queries */}
-          <h2 className='text-xl font-semibold my-6'>My Queries</h2>
-               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+         <div className="w-11/12 mx-auto">
+         <h2 className='text-xl font-semibold my-6'>My Queries</h2>
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
         {
           queries?.map(query => <MyQueryCard key={query?._id} query={query} fetchAllQueries={fetchAllQueries}></MyQueryCard>)
          }
         </div>
+         </div>
          </div>
     );
 };

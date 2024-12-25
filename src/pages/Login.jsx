@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const { loginWithGoogle,loginUser } = useContext(AuthContext);
@@ -37,7 +38,6 @@ const Login = () => {
 
   // google login
   const handleGoogle = () => {
-    const navigate = useNavigate()
     loginWithGoogle()
       .then(res => {
         
@@ -63,15 +63,15 @@ const Login = () => {
             {/* form */}
           
   <div className=" flex-col ">
-            {/* google login button */}
-            <div className="flex justify-center items-center">
-            <button onClick={handleGoogle} className='btn'>Login With Google</button>
-            </div>
-            <div className="divider">OR</div>
+            
     <div className=" flex justify-center items-center my-9">
            <div className="card bg-base-100 w-full max-w-xl border border-[#00000033]">
              <form onSubmit={handleLogin} className="card-body ">
-               
+               {/* google login button */}
+            <div className=" flex justify-center items-center">
+            <button type='button' onClick={handleGoogle} className='btn w-full border-[1px] border-[#00000045]'><FcGoogle />Login With Google</button>
+            </div>
+            <div className="divider divider-primary">OR</div>
               
                    {/* email */}
                <div className="form-control">
@@ -109,7 +109,7 @@ const Login = () => {
                  </label>
                </div>
                <div className="form-control mt-6">
-                 <button type="submit" className="btn btn-accent">
+                 <button type="submit" className="btn bg-black text-white hover:text-black">
                    Log in
                  </button>
                </div>

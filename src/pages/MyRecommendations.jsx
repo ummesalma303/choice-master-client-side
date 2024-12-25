@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import axios from 'axios';
 import MyRecommendTable from '../components/MyRecommendTable';
+import useAxiosSecure from '../hooks/UseAxiosSecure';
 // import MyRecommandTable from '../components/MyRecommendTable';
 
 const MyRecommendations = () => {
     const {user} = useContext(AuthContext);
-    console.log(user?.email)
+    const axiosSecure = useAxiosSecure()
+    // console.log(user?.email)
       const [recommendations,setRecommendations] =useState()
     
     // console.log(user)
@@ -15,7 +17,7 @@ const MyRecommendations = () => {
     fetchAllRecommendations()
    },[user])
    const fetchAllRecommendations = () => {
-    axios.get(`http://localhost:5000/myRecommends/${user?.email}`)
+    axiosSecure.get(`http://localhost:5000/myRecommends/${user?.email}`)
     .then(res=>{
       console.log(res.data)
     setRecommendations(res.data)

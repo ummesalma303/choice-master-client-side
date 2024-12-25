@@ -4,13 +4,15 @@ import Lottie from "lottie-react";
 
 const ContactSec = () => {
     return (
-        <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse space-x-4">
-          <div className="text-center lg:text-left w-1/2">
+         <div className='w-11/12 mx-auto mb-6 md:mb-0'>
+            
+        <div className=" flex-col lg:flex-row-reverse justify-center items-center gap-x-">
+        {/* <div className="hero-content flex-col lg:flex-row-reverse gap-x-6"> */}
+          <div className="text-center lg:text-left md:w-1/2">
           <Lottie animationData={contact} />
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body">
+          <div className="card w-full max-w-lg h-full border-2 border-[#00000071]">
+            <form className="card-body ">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -19,20 +21,18 @@ const ContactSec = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text">Phone Number:</span>
                 </label>
-                <input type="password" placeholder="password" className="input input-bordered" required />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                </label>
+                <input type="number" placeholder="Phone number" className="input input-bordered" required />
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Contact Us</button>
+                <button className="btn bg-black text-white hover:text-black">Contact Us</button>
               </div>
             </form>
           </div>
-        </div>
+        {/* </div> */}
       </div>
+         </div>
     );
 };
 
