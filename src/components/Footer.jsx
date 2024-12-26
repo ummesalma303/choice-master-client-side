@@ -72,7 +72,7 @@ const Footer = () => {
     {/* <img className='w-20 h-20' src={logo} alt="" /> */}
      <h2 className='border-2 border-yellow-300 p-2 rounded-full'> <MdOutlineQueryStats size={35}/></h2>
     <p className="font-bold">
-      ACME Industries Ltd.
+      Choice Master
       <br />
       Providing reliable tech since 1992
     </p>
