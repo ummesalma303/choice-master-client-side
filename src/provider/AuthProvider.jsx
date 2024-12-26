@@ -20,12 +20,13 @@ const AuthProvider = ({ children }) => {
     /* ------------------------------ sign Out user ----------------------------- */
     const signOutUser = () => {
         setLoading(true)
-        signOut(auth).then((res) => {
-            Swal.fire({
-                title: "Success",
-                text: "Sign out Successful",
-                icon: "success"
-              });
+        signOut(auth)
+        .then((res) => {
+            // Swal.fire({
+            //     title: "Success",
+            //     text: "Sign out Successful",
+            //     icon: "success"
+            //   });
              
           }).catch((error) => {
             Swal.fire({
@@ -48,28 +49,31 @@ const AuthProvider = ({ children }) => {
    
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
-            console.log(currentUser?.email)
+            // setUser(currentUser)
+            // console.log(currentUser?.email)
             // console.log("current user =>", currentUser)
             if (currentUser?.email) {
                 const user ={email:currentUser?.email}
 
             axios.post('https://b10a11-server-side-ummesalma303.vercel.app/jwt',user,  { withCredentials: true })
             .then(res=>{
-                console.log(res.data)
+                // console.log(res.data)
+                // setUser(cuu)
+            setUser(currentUser)
                 setLoading(false)
             })
             .catch(err=>console.log(err))
             }else{
                 axios.post('https://b10a11-server-side-ummesalma303.vercel.app/logOut',{},  { withCredentials: true })
                 .then(res=>{
-                    
+                    setUser(currentUser)
                     setLoading(false)
-                    console.log('log out',res.data)})
+                    // console.log('log out',res.data)
+                })
                 .catch(err=>console.log(err))
             }
 
-            setLoading(false)
+            // setLoading(false)
         })
         return ()=> unsubscribe()
     },[])

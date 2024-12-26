@@ -7,7 +7,7 @@ const AddQueries = () => {
   const navigate = useNavigate()
     const {user} =useContext(AuthContext);
 
-   
+  //  console.log(user)
     // console.log(currentDate,currentTime)
 
 
@@ -50,7 +50,8 @@ const AddQueries = () => {
             recommendationCount:0,
 
         }
-        // console.log(queryData)
+        // console.log(queryData);
+        // console.log(user)
 
         axios.post('https://b10a11-server-side-ummesalma303.vercel.app/add-queries',queryData)
         .then(res=>{
@@ -61,7 +62,7 @@ const AddQueries = () => {
               text: "Your query successfully added",
               icon: "success"
             });
-            navigate('/myQueries ')
+            navigate('/myQueries')
         })
            
         .catch(err=>{

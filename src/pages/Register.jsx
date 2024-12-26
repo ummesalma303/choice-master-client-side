@@ -39,7 +39,7 @@ const Register = () => {
                 navigate('/')
               })
                 .catch(err=>{
-                  console.log(err)
+                  // console.log(err)
                   Swal.fire({
                     icon: "error",
                     title: 'text',
@@ -50,7 +50,14 @@ const Register = () => {
             
             //  navigate('/')
               
-        .catch(err=>console.log(err))
+        .catch(err=>{
+          Swal.fire({
+            icon: "error",
+            title: 'text',
+            text: `${err.message}`,
+          });
+          // console.log(err)
+        })
        
         // console.log(user)
     }

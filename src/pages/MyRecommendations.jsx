@@ -14,12 +14,14 @@ const MyRecommendations = () => {
     // console.log(user)
     
  useEffect(()=>{
+  if(user?.email){
     fetchAllRecommendations()
+  }
    },[user])
    const fetchAllRecommendations = () => {
     axiosSecure.get(`https://b10a11-server-side-ummesalma303.vercel.app/myRecommends/${user?.email}`)
     .then(res=>{
-      console.log(res.data)
+      // console.log(res.data)
     setRecommendations(res.data)
     })
     .catch(err=>console.log(err))

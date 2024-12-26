@@ -6,7 +6,7 @@ const ContactSec = () => {
     return (
          <div className='w-11/12 mx-auto mb-6 md:mb-0'>
             
-        <div className=" flex-col lg:flex-row-reverse justify-center items-center gap-x-">
+        <div className="md:flex flex-col lg:flex-row-reverse justify-center items-center gap-x-">
         {/* <div className="hero-content flex-col lg:flex-row-reverse gap-x-6"> */}
           <div className="text-center lg:text-left md:w-1/2">
           <Lottie animationData={contact} />

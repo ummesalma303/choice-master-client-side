@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const UpdateQuery = () => {
     const {id} =useParams();
     const navigate = useNavigate()
-    console.log(id)
+    // console.log(id)
     const HandleUpdateQuery = e =>{
         e.preventDefault()
         const form = e.target
@@ -31,15 +31,15 @@ const UpdateQuery = () => {
 
         axios.put(`https://b10a11-server-side-ummesalma303.vercel.app/updateQuery/${id}`,updateData)
   .then(res=>{
-    console.log(res.data)
+    // console.log(res.data)
 //   setQueries(res.data)
 if (res.data.modifiedCount>0) {
     Swal.fire({
-        title: "The Internet?",
-        text: "That thing is still around?",
-        icon: "question"
+        title: "Success",
+        text: "Update successfully",
+        icon: "success"
       });
-    navigate('/')
+    navigate('/myQueries')
 }
   })
   .catch(err=>console.log(err))

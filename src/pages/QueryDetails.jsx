@@ -24,7 +24,7 @@ const QueryDetails = () => {
             // return axios.post('/todos', newTodo)
           },
           onSuccess: () => {
-            console.log('data saved')
+            // console.log('data saved')
 
               Swal.fire({
                           title: "Success",
@@ -82,7 +82,11 @@ const handleQueryForm = async e =>{
         await mutateAsync(recommendationData)
         form.reset()
       } catch (err) {
-        console.log(err)
+       Swal.fire({
+                    icon: "error",
+                    title: `${err.message }`,
+                    text: "Something went wrong!",
+                  });
         
       }
 }
@@ -151,7 +155,7 @@ const handleQueryForm = async e =>{
                 <input
                   type="text"
                   name="recommendationName"
-                  placeholder="Product NameRecommended product Name "
+                  placeholder="Product Name "
                   className="input input-bordered"
                   required
                 />
@@ -179,7 +183,7 @@ const handleQueryForm = async e =>{
                 <input
                   type="text"
                   name="title"
-                  placeholder="Query TItle"
+                  placeholder="Recommendation TItle"
                   className="input input-bordered"
                   required
                 />

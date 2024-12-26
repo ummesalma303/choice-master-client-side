@@ -20,16 +20,17 @@ const useAxiosSecure = () => {
       // console.log(err.response.data.message)
       // console.log(err.message)
       // console.log(err)
-      //  Swal.fire({
-      //         icon: "error",
-      //         title: `${err.message}`,
-      //         text: "Something went wrong!",
-      //       });
-      if (err.response.status===401 || err.response.status===403) {
+     
+      if (err.response.status === 401 || err.response.status === 403) {
         // return
-        // console.log('forbidden')
-        signOutUser()
-        navigate('/login')
+        // console.log(err.response.data.message )
+          Swal.fire({
+              icon: "error",
+              title: `${err.response.data.message }`,
+              text: "Something went wrong!",
+            });
+        // signOutUser()
+        // navigate('/login')
       }
     })
   },[signOutUser,navigate])

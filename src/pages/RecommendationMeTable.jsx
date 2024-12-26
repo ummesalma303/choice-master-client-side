@@ -6,7 +6,7 @@ const RecommendationMeTable = ({i,recommend}) => {
         title        
 
     } = recommend
-    console.log(recommend)
+    // console.log(recommend)
     return (
        <tr className="hover">
       

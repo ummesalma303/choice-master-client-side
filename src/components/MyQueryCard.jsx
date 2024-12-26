@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { format } from 'date-fns';
 import React from 'react';
+import { CiEdit } from 'react-icons/ci';
+import { MdDeleteForever } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2'
 const MyQueryCard = ({query,fetchAllQueries}) => {
@@ -56,7 +58,7 @@ const MyQueryCard = ({query,fetchAllQueries}) => {
         <div className="card-body ">
             <div className="flex justify-between items-center">
                 <h2>{currentDate}</h2>
-                <h2>{format(currentTime, "HH:mm:ss")}</h2>
+                <h2>{format(currentTime, "p")}</h2>
             </div>
           <h2 className="card-title">Product Name: {productName}</h2>
           <h3>Title:{title}</h3>
@@ -68,10 +70,12 @@ const MyQueryCard = ({query,fetchAllQueries}) => {
           <p>Boycotting Details: {boycottingDetails?.substr(0,17)}...</p>
          
           <div className="card-actions">
-           <NavLink to={`/queryDetails/${_id}`}> <button className="btn btn-primary">View Details</button></NavLink>
-           <NavLink to={`/updateQuery/${_id}`}> <button className="btn btn-primary">Update</button></NavLink>
+           <NavLink to={`/queryDetails/${_id}`}> <button className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white">
+           View Details</button></NavLink>
+           <NavLink to={`/updateQuery/${_id}`}> <button className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white"><CiEdit />Update</button></NavLink>
             {/* <button className="btn btn-primary">Update</button> */}
-            <button onClick={()=>handleDelete(_id)} className="btn btn-primary">Delete </button>
+            <button onClick={()=>handleDelete(_id)} className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white"><MdDeleteForever />
+             Delete </button>
           </div>
         </div>
       </div>

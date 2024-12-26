@@ -10,14 +10,17 @@ const RecommendationsForMe = () => {
     const [ recommendations,setRecommendations] = useState([])
     // const [recommendations,setRecommendations] = useState([])
     const {user} = useContext(AuthContext)
-    console.log(user?.email)
+    // console.log(user?.email)
     useEffect(()=>{
-      fetchAllQueries()
+      if (user?.email){
+        fetchAllQueries()
+      }
+
      },[user])
      const fetchAllQueries = () => {
       axiosSecure.get(`/myRecommendations/${user?.email}`)
       .then(res=>{
-        console.log(res.data)
+        // console.log(res.data)
         setRecommendations(res.data)
       // setQueries(res.data)
       })

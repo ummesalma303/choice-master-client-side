@@ -31,7 +31,7 @@ const QueryCard = ({query}) => {
           <p>Boycotting Details: {boycottingDetails?.substr(0,17)}...</p>
           <h3>Recommendation Count: {recommendationCount}</h3>
           <div className="card-actions">
-          <NavLink to={`/queryDetails/${_id}`}> <button className="btn btn-primary">Recommend</button></NavLink>
+          <NavLink to={`/queryDetails/${_id}`}> <button className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white">Query details</button></NavLink>
             {/* <button className="btn btn-primary"></button> */}
           </div>
         </div>
