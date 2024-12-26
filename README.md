@@ -1,8 +1,19 @@
-# React + Vite
+# Choice Master
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose
+Choice Master is a product recommendation website where users can query products in a beautiful way. Users can recommend products to each other, making it easy for people to find the products they need.
 
-Currently, two official plugins are available:
+Live URL:
+https://choice-master-e1ccf.firebaseapp.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Key Features:
+1. Database: MongoDB for storing user and product data.
+2.  Authentication: Firebase for user authentication.
+3. Server: Express.js to handle server-side operations.
+4. Design: Tailwind CSS for styling and creating a visually appealing design.
+5. UI Components: Custom components created using DaisyUI for enhanced user interface.
+6. Carousel: React Swiper for implementing carousels.
+
+## NPM Packages Used
+- sweetalert2: For displaying beautiful toast messages.
+- react-slider: For implementing carousels.
