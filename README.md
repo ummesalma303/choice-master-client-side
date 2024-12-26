@@ -3,10 +3,10 @@
 ## Purpose
 Choice Master is a product recommendation website where users can query products in a beautiful way. Users can recommend products to each other, making it easy for people to find the products they need.
 
-Live URL:
+### Live URL:
 https://choice-master-e1ccf.firebaseapp.com
 
-Key Features:
+### Key Features:
 1. Database: MongoDB for storing user and product data.
 2.  Authentication: Firebase for user authentication.
 3. Server: Express.js to handle server-side operations.
