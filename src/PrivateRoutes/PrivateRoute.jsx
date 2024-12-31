@@ -9,7 +9,7 @@ const PrivateRoute = ({children}) => {
     // console.log(loading,user)
     if (loading) {
         // console.log(loading)
-        return <div className='h-20'><span className="loading loading-infinity loading-lg"></span></div>
+        return <div className='h-[70vh] flex justify-center items-center'><span className="loading loading-infinity loading-lg"></span></div>
     }
     if (user) {
         // console.log(user)

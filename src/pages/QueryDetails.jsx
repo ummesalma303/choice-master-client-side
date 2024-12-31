@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 const QueryDetails = () => {
   const {user} =useContext(AuthContext)
   const queryClient = useQueryClient()
+  // console.log(user?.photoURL)
   // const [recommendations,setRecommendations] = useState([])
     const {imageUrl,productName,title,boycottingDetails,currentDate,currentTime,email,userName,_id,
         userImage} =useLoaderData()
@@ -46,7 +47,9 @@ const QueryDetails = () => {
 const handleQueryForm = async e =>{
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed)
-
+ 
+  const currentDate = today.toLocaleDateString()
+  console.log(currentDate)
   const currentTime = today.getTime()
   // console.log(today.toLocaleTimeString())
 
@@ -67,11 +70,13 @@ const handleQueryForm = async e =>{
       // userImage: user?.photoURL,
       recommenderEmail:user?.email,
       recommenderName:user?.displayName,
+      recommenderImage:user?.photoURL,
       
       image,
       title,
       reason,
       recommendationName,
+      currentDate,
       currentTime,
       // recommendationCount:0,
 
@@ -116,7 +121,7 @@ const handleQueryForm = async e =>{
         <div className="card-body ">
             <div className="flex justify-between items-center">
                 <h2>{currentDate}</h2>
-                <h2>{format(currentTime, "HH:mm:ss")}</h2>
+                <h2>{format(currentTime, "p")}</h2>
             </div>
           <h2 className="card-title">Product Name: {productName}</h2>
           <h3>Title:{title}</h3>
@@ -213,7 +218,7 @@ const handleQueryForm = async e =>{
          {/* all recommendation */}
       <div className="">
         <h2 className='text-2xl my-4 font-semibold'>Recommendations:</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10  border-[1px] border-[#0000003f] p-5 rounded-lg">
+      <div className="grid grid-cols-1  gap-10  border-[1px] border-[#0000003f] p-5 rounded-lg">
      {
       recommendations?.map(recommendation=><AllRecommendation key={recommendation._id} recommendation={recommendation}></AllRecommendation>)
      }
