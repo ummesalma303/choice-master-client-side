@@ -33,7 +33,7 @@ Choice Master is a product recommendation website where users can query products
 - **Backend:** Firebase (Authentication & Database)
 - **State Management:** React Query
 - **Animations & UI Enhancements:** Lottie React, React Awesome Reveal, Swiper, React Slick
-- **Other:** Axios, SweetAlert2, Date-fns, Match-sorter, Localforage
+- **Other:** Axios, SweetAlert2, Date-fns
 
 ---
 
@@ -122,6 +122,11 @@ npm run dev
 3. Enjoy a seamless user experience!
 
 ---
+
+## 📚 Additional Resources
+- [React Documentation](https://react.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Firebase Documentation](https://firebase.google.com/docs/)
 
 
 
