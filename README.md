@@ -3,7 +3,7 @@
 Choice Master is a product recommendation website where users can query products in a beautiful way. Users can recommend products to each other, making it easy for people to find the products they need.
 
 ## 🚀 Live Project
-[Choice Master Live Site](https://choice-master-e1ccf.firebaseapp.com/) <!-- Add the actual live project URL here -->
+ Live Site: [Choice Master](https://choice-master-e1ccf.firebaseapp.com/) <!-- Add the actual live project URL here -->
 
 ---
 
