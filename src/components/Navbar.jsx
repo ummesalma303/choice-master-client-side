@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 // import logo from '../assets/logo.png'
 import { MdOutlineQueryStats } from 'react-icons/md';
 const Navbar = () => {
@@ -10,17 +10,18 @@ const Navbar = () => {
     <NavLink to='/'>Home</NavLink>
     <NavLink to='/queries'>Queries</NavLink>
    {
-    user&& <NavLink to='/recommendationsForMe'>Recommendations For Me</NavLink>
-   }
+     user&& <NavLink to='/recommendationsForMe'>Recommendations For Me</NavLink>
+    }
     {
       user&&<NavLink to='/myQueries'>My Queries</NavLink>
     }
     {
       user&&<NavLink to='/myRecommendations'>My recommendations</NavLink>
     }
+    <NavLink to='/contact'>Contact Us</NavLink>
     </>
     return (
-        <div className=" bg-gradient-to-r from-blue-600 to-[#0a1124] text-white ">
+        <div className=" bg-gradient-to-r from-blue-600 to-[#0a1124] text-white fixed top-0 z-30 w-full">
             <div className="w-11/12  mx-auto navbar ">
             <div className="navbar-start">
           <div className="dropdown">
@@ -58,7 +59,7 @@ const Navbar = () => {
         <div className="navbar-end space-x-4">
           {
             user? <div className='flex justify-center items-center space-x-3'><button className="btn" onClick={signOutUser}>Log Out</button> <img referrerPolicy='no-referrer' title={user?.displayName} className='w-12 h-12 rounded-full' src={user?.photoURL
-            } alt="" /></div>:<NavLink to='/login'><button className='btn'>Log In</button></NavLink>
+            } alt="" /></div>:<Link  to='/login'><button className='btn'>Log In</button></Link>
             }
             
             

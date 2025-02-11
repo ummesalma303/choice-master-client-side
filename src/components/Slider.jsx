@@ -3,7 +3,7 @@ import React from 'react';
 const Slider = ({banner}) => {
     return (
       <div>
-      <img className='relative h-[90vh] w-full' src={banner} alt="" />
+      <img className='relative h-[70vh] w-full' src={banner} alt="" />
      <div className="inset-0 absolute flex justify-center items-center bg-gradient-to-tr from-[#0000008b] to-[#0000002d]">
      <div className=" w-2/3 mx-auto text-center space-y-4">
         <h2 className=' text-3xl font-semibold text-white'>Choice Master</h2>

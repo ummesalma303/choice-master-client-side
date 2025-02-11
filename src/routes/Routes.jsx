@@ -15,9 +15,11 @@ import Login from '../pages/Login';
 import PrivateRoute from '../PrivateRoutes/PrivateRoute';
 import MyRecommendations from '../pages/MyRecommendations';
 import AddQueries from '../pages/AddQueries';
-import Home from '../Pages/Home';
+// import Home from '../Pages/Home';
 import QueryDetails from '../pages/QueryDetails';
 import UpdateQuery from '../pages/UpdateQuery';
+import ContactSec from '../components/ContactSec';
+import Home from '../pages/Home';
 // import Home from '../pages/Home';
 
 
@@ -61,6 +63,10 @@ import UpdateQuery from '../pages/UpdateQuery';
         {
           path:'/updateQuery/:id',
           element:<UpdateQuery></UpdateQuery>
+        },
+      {
+        path:'/contact',
+        element:<ContactSec/>
         },
       {
         path:'/login',
