@@ -50,7 +50,7 @@ console.log(queries)
        
          <div className="">
           {/* Add Query Banner */}
-           <div className="relative bg-banner w-full h-[80vh] bg-no-repeat bg-cover bg-center">
+           <div className="relative bg-banner w-full h-screen bg-no-repeat bg-cover bg-center">
             {/*  */}
              <div className='absolute flex justify-center items-center bg-gradient-to-t from-[#0000004a] to-[#00000083] inset-0'>
                <div className="text-center mx-auto w-1/2">
