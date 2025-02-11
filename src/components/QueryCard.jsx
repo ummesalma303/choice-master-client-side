@@ -9,7 +9,7 @@ const QueryCard = ({query}) => {
   //  const time = currentTime.toLocaleTimeString()
   //   console.log(time)
     return (
-        <div className="card bg-base-100 border-[1px] bg-white/30 shadow-xl dark:text-white">
+        <div className="card bg-base-100 border-[1px]  shadow-xl dark:text-white">
         <figure className="px-10 pt-10">
           <img
             src={imageUrl?imageUrl:''}
