@@ -17,7 +17,7 @@ const LogoSec = () => {
                 <img src={logo1} alt="" />
                 <img src={logo3} alt="" />
                 <img src={logo4} alt="" />
-                
+                {/* alignment */}
             </div>
             </Marquee>
         </div>
