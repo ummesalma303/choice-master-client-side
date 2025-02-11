@@ -11,7 +11,7 @@ const Queries = () => {
   useEffect(() => {
     axios
       .get(
-    /allQueries?search=${search}&sort=${sortQueries}`
+        `https://b10a11-server-side-ummesalma303.vercel.app/allQueries?search=${search}&sort=${sortQueries}`
       )
       .then((res) => setQueries(res.data));
     // console.log(queries);

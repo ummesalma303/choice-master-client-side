@@ -13,10 +13,10 @@ const Home = () => {
     const queries = useLoaderData()
    
     return (
-        <div className='border-2'>
+        <div>
           <Banner></Banner>
              {/* logos */}
-           <div className="w-11/12 mx-auto my-14 border-2">
+           <div className="w-11/12 mx-auto my-14">
              <LogoSec></LogoSec>
            {/* Recent Queries section */}
            <RecentQueries queries={queries}></RecentQueries>
