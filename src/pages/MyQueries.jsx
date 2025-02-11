@@ -23,7 +23,7 @@ console.log(queries)
   }
  },[user])
  const fetchAllQueries = () => {
-  axiosSecure.get(`http://localhost:5000/myQueries/${user?.email}`)
+  axiosSecure.get(`https://b10a11-server-side-ummesalma303.vercel.app/myQueries/${user?.email}`)
   .then(res=>{
     console.log(res.data)
   setQueries(res.data)

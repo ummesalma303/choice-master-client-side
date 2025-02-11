@@ -11,7 +11,7 @@ const Queries = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/allQueries?search=${search}&sort=${sortQueries}`
+    /allQueries?search=${search}&sort=${sortQueries}`
       )
       .then((res) => setQueries(res.data));
     // console.log(queries);
@@ -21,10 +21,10 @@ const Queries = () => {
   const toggleGridLayout = () => {
     setColumn(!column);
   };
-  console.log(sortQueries)
+  // console.log(sortQueries)
   return (
     <div className="w-11/12 mx-auto my-24">
-      <div className="flex flex-wrap items-center">
+      <div className="md:flex items-center space-y-4 md:space-y-0 my-11">
         <div className="">
           <h2 className="text-3xl  font-semibold text-center md:text-left">
             All Queries
@@ -32,12 +32,13 @@ const Queries = () => {
         </div>
 {/* search input */}
         <div className=" mx-auto  space-x-3 ">
+          
           <input
             onChange={(e) => setSearch(e.target.value)}
             value={search}
             type="text"
             placeholder="please search a product name....."
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full md:w-80"
           />
           {/* <button type='submit' className='btn btn-accent text-white'>Search</button> */}
         </div>
@@ -51,10 +52,10 @@ const Queries = () => {
 </select>
 
 
-          <input
+          <input 
             type="checkbox"
             onClick={() => toggleGridLayout()}
-            className="toggle toggle-info"
+            className="toggle toggle-info invisible md:visible"
             defaultChecked
           />
         </div>
