@@ -15,7 +15,7 @@ const RecentQueries = ({queries}) => {
         <div className=''>
           <h2 className='text-3xl font-semibold'>Recent Queries</h2>
        <Fade>
-       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9">
+       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-9">
         {
           queries?.map(query => <QueryCard key={query?._id} query={query}></QueryCard>)
          }

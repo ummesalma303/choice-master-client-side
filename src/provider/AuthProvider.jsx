@@ -55,7 +55,7 @@ const AuthProvider = ({ children }) => {
             if (currentUser?.email) {
                 const user ={email:currentUser?.email}
 
-            axios.post('https://b10a11-server-side-ummesalma303.vercel.app/jwt',user,  { withCredentials: true })
+            axios.post('http://localhost:5000/jwt',user,  { withCredentials: true })
             .then(res=>{
                 // console.log(res.data)
                 // setUser(cuu)
@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
             })
             .catch(err=>console.log(err))
             }else{
-                axios.post('https://b10a11-server-side-ummesalma303.vercel.app/logOut',{},  { withCredentials: true })
+                axios.post('http://localhost:5000/logOut',{},  { withCredentials: true })
                 .then(res=>{
                     setUser(currentUser)
                     setLoading(false)

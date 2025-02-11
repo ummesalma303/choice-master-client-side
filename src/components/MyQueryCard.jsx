@@ -26,7 +26,7 @@ const MyQueryCard = ({query,fetchAllQueries}) => {
     if (result.isConfirmed) {
       
 
-      axios.delete(`https://b10a11-server-side-ummesalma303.vercel.app/query/${id}`)
+      axios.delete(`http://localhost:5000/query/${id}`)
       .then(res=>{
         // console.log(res.data.deletedCount)
         if (res.data.deletedCount>0) {

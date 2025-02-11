@@ -24,11 +24,11 @@ const QueryCard = ({query}) => {
             </div>
           <h2 className="card-title">Product Name: {productName}</h2>
           <h3>Title:{title}</h3>
-          <div>
+          {/* <div>
                 <h2>User Name: {userName}</h2>
                 <h2>User Email:{email}</h2>
-            </div>
-          <p>Boycotting Details: {boycottingDetails?.substr(0,17)}...</p>
+            </div> */}
+          <p>Boycotting Details: {boycottingDetails?.substr(0,28)}...</p>
           <h3>Recommendation Count: {recommendationCount}</h3>
           <div className="card-actions">
           <NavLink to={`/queryDetails/${_id}`}> <button className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white">Query details</button></NavLink>

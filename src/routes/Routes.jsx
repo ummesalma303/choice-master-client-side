@@ -32,12 +32,12 @@ import Home from '../pages/Home';
       {
         path:'/',
         element:<Home/>,
-        loader:()=>fetch('https://b10a11-server-side-ummesalma303.vercel.app/recentQueries')
+        loader:()=>fetch('http://localhost:5000/recentQueries')
         },
       {
         path:'/queries',
         element:<Queries/>,
-        // loader:()=>fetch('https://b10a11-server-side-ummesalma303.vercel.app/allQueries')
+        // loader:()=>fetch('http://localhost:5000/allQueries')
         },
       {
         path:'/recommendationsForMe',
@@ -58,7 +58,7 @@ import Home from '../pages/Home';
       {
         path:'/queryDetails/:id',
         element:<PrivateRoute><QueryDetails/></PrivateRoute>,
-        loader: ({params}) => fetch(`https://b10a11-server-side-ummesalma303.vercel.app/allQueries/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/allQueries/${params.id}`)
         },
         {
           path:'/updateQuery/:id',

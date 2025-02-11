@@ -24,7 +24,7 @@ console.log(recommend)
               if (result.isConfirmed) {
                 
           
-                axios.put(`https://b10a11-server-side-ummesalma303.vercel.app/recommend/${id}`,recommend)
+                axios.put(`http://localhost:5000/recommend/${id}`,recommend)
                 .then(res=>{
                 //   console.log(res.data.deletedCount)
                   if (res.data.deletedCount>0) {

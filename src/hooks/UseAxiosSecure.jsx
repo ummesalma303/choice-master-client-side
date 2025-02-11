@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const  axiosSecure = axios.create({
-    baseURL: 'https://b10a11-server-side-ummesalma303.vercel.app',
+    baseURL: 'http://localhost:5000',
     withCredentials: true 
   });
 

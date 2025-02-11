@@ -7,41 +7,50 @@ const Queries = () => {
   const [queries, setQueries] = useState([]);
   const [search, setSearch] = useState("");
   const [column, setColumn] = useState(true);
+  const [sortQueries, setSortQueries] = useState('');
   useEffect(() => {
     axios
       .get(
-        `https://b10a11-server-side-ummesalma303.vercel.app/allQueries?search=${search}`
+        `http://localhost:5000/allQueries?search=${search}&sort=${sortQueries}`
       )
       .then((res) => setQueries(res.data));
     // console.log(queries);
-  }, [search]);
+  }, [search,sortQueries]);
   // console.log(search)
   // const queries = useLoaderData()
   const toggleGridLayout = () => {
     setColumn(!column);
   };
+  console.log(sortQueries)
   return (
-    <div className="w-11/12 mx-auto my-14">
+    <div className="w-11/12 mx-auto my-24">
       <div className="flex flex-wrap items-center">
         <div className="">
           <h2 className="text-3xl  font-semibold text-center md:text-left">
             All Queries
           </h2>
         </div>
-
+{/* search input */}
         <div className=" mx-auto  space-x-3 ">
           <input
             onChange={(e) => setSearch(e.target.value)}
             value={search}
             type="text"
-            placeholder="Search Here....."
+            placeholder="please search a product name....."
             className="input input-bordered w-full max-w-xs"
           />
           {/* <button type='submit' className='btn btn-accent text-white'>Search</button> */}
         </div>
         {/* <h2>Queries</h2> */}
 
-        <div className="">
+        <div className="flex items-center space-x-3">
+        <select onChange={(e)=>setSortQueries(e.target.value)} className="select select-bordered w-full">
+  {/* <option disabled selected>All</option> */}
+  <option>All Queries</option>
+  <option>Recent Queries</option>
+</select>
+
+
           <input
             type="checkbox"
             onClick={() => toggleGridLayout()}
