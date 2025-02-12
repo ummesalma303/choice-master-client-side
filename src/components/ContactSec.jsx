@@ -51,14 +51,14 @@ const ContactSec = () => {
       );
   };
     return (
-         <div className=' mx-auto mb-6 md:mb-0'>
+         <div className=' mx-auto mb-16 md:mb-0'>
             
         <div className="md:flex flex-col lg:flex-row-reverse justify-between items-center">
         {/* <div className="hero-content flex-col lg:flex-row-reverse gap-x-6"> */}
-          <div className="text-center lg:text-left md:w-1/2">
+          <div className="text-center lg:text-left md:w-1/2 ">
           <Lottie animationData={contact} />
           </div>
-          <div className="card w-full max-w-lg h-full border-[1px] border-gray-900/5  shadow-xl bg-white dark:bg-gray-800 rounded-lg">
+          <div className="card w-full max-w-lg  border-[1px] border-gray-900/5  shadow-xl bg-white dark:bg-gray-800 rounded-lg">
             <form ref={form} onSubmit={sendEmail} className="card-body ">
               <div className="form-control">
                 <label className="label">

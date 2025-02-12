@@ -29,7 +29,8 @@ const UpdateQuery = () => {
         }
         // console.log(UpdateQueryData)
 
-        axios.put(`https://b10a11-server-side-ummesalma303.vercel.app/updateQuery/${id}`,updateData)
+        axios.put(`
+https://b10a11-server-side-ummesalma303.vercel.app/updateQuery/${id}`,updateData)
   .then(res=>{
     // console.log(res.data)
 //   setQueries(res.data)

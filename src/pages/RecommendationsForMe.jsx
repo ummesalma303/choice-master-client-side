@@ -27,7 +27,7 @@ const RecommendationsForMe = () => {
       .catch(err=>console.log(err))
      }
     return (
-      <div className="h-[70vh] max-w-7xl mx-auto mt-32 ">
+      <div className="h-[70vh] max-w-7xl mx-auto my-24 ">
           <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

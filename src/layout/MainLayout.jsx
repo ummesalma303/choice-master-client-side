@@ -7,7 +7,7 @@ import Loader from '../components/Loader';
 
 const MainLayout = () => {
     const navigation = useNavigation()
-    console.log(navigation)
+    // console.log(navigation)
     return (
         <div>
             <Navbar></Navbar>

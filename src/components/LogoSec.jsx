@@ -7,7 +7,7 @@ import { Fade, Slide } from "react-awesome-reveal";
 import Marquee from "react-fast-marquee";
 const LogoSec = () => {
     return (
-        <div className=' my-14 '>
+        <div className=' my-16'>
             {/* <h2>Logo Section</h2> */}
             <Marquee  speed={100} className="space-x-10">
             <div className=" *:w-60 *:h-48 *:border-2 *:border-[#0000003d] *:rounded-md grid grid-cols-6 justify-items-center gap-9">

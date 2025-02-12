@@ -10,8 +10,7 @@ const Queries = () => {
   const [sortQueries, setSortQueries] = useState('');
   useEffect(() => {
     axios
-      .get(
-        `https://b10a11-server-side-ummesalma303.vercel.app/allQueries?search=${search}&sort=${sortQueries}`
+      .get(`https://b10a11-server-side-ummesalma303.vercel.app/allQueries?search=${search}&sort=${sortQueries}`
       )
       .then((res) => setQueries(res.data));
     // console.log(queries);

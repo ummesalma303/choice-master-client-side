@@ -58,9 +58,10 @@ const AuthProvider = ({ children }) => {
 
             axios.post('https://b10a11-server-side-ummesalma303.vercel.app/jwt',user,  { withCredentials: true })
             .then(res=>{
-                // console.log(res.data)
+                console.log(res)
                 // setUser(cuu)
             setUser(currentUser)
+            
                 setLoading(false)
             })
             .catch(err=>console.log(err))

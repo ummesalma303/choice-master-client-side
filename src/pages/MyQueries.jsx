@@ -61,9 +61,9 @@ console.log(queries)
                  </div>
           </div>
           {/* my queries */}
-         <div className="w-11/12 mx-auto my-14">
-         <h2 className='text-xl font-semibold my-6'>My Queries</h2>
-               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+         <div className="w-11/12 mx-auto my-16">
+         <h2 className='text-3xl font-semibold dark:text-white  mb-10'>My Queries</h2>
+               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {
           queries?.map(query => <MyQueryCard key={query?._id} query={query} fetchAllQueries={fetchAllQueries}></MyQueryCard>)
          }

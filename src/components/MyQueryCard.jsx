@@ -26,7 +26,8 @@ const MyQueryCard = ({query,fetchAllQueries}) => {
     if (result.isConfirmed) {
       
 
-      axios.delete(`https://b10a11-server-side-ummesalma303.vercel.app/query/${id}`)
+      axios.delete(`
+https://b10a11-server-side-ummesalma303.vercel.app/query/${id}`)
       .then(res=>{
         // console.log(res.data.deletedCount)
         if (res.data.deletedCount>0) {
@@ -48,7 +49,7 @@ const MyQueryCard = ({query,fetchAllQueries}) => {
   });
     }
     return (
-        <div className="card bg-base-100  shadow-xl">
+        <div className="card  border-[1px] border-gray-900/5 bg-white dark:bg-gray-800 rounded-lg">
         <figure className="px-10 pt-10">
           <img
             src={imageUrl}
@@ -60,21 +61,21 @@ const MyQueryCard = ({query,fetchAllQueries}) => {
                 <h2>{currentDate}</h2>
                 <h2>{format(currentTime, "p")}</h2>
             </div>
-          <h2 className="card-title">Product Name: {productName}</h2>
-          <h3>Title:{title}</h3>
-          <div>
+          <h2 className="card-title dark:text-white">Product Name: {productName}</h2>
+          <h3><span className='font-bold dark:text-gray-200'>Title:</span>{title}</h3>
+          {/* <div >
                 <h2>User Name: {userName}</h2>
                 <h2>User Email:{email}</h2>
-            </div>
+            </div> */}
             <h3>Recommendation Count: {recommendationCount}</h3>
           <p>Boycotting Details: {boycottingDetails?.substr(0,17)}...</p>
          
           <div className="card-actions">
-           <NavLink to={`/queryDetails/${_id}`}> <button className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white">
+           <NavLink to={`/queryDetails/${_id}`}> <button className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white mt-5 dark:bg-gradient-to-tl from-[ rgba(132,94,194,1)] to-[rgba(75,255,237,1)]">
            View Details</button></NavLink>
-           <NavLink to={`/updateQuery/${_id}`}> <button className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white"><CiEdit />Update</button></NavLink>
+           <NavLink to={`/updateQuery/${_id}`}> <button className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white mt-5 dark:bg-gradient-to-tl from-[ rgba(132,94,194,1)] to-[rgba(75,255,237,1)]"><CiEdit />Update</button></NavLink>
             {/* <button className="btn btn-primary">Update</button> */}
-            <button onClick={()=>handleDelete(_id)} className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white"><MdDeleteForever />
+            <button onClick={()=>handleDelete(_id)} className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white mt-5 dark:bg-gradient-to-tl from-[ rgba(132,94,194,1)] to-[rgba(75,255,237,1)]"><MdDeleteForever />
              Delete </button>
           </div>
         </div>

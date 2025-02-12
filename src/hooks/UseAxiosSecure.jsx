@@ -5,8 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const  axiosSecure = axios.create({
-    baseURL: 'https://b10a11-server-side-ummesalma303.vercel.app',
-    withCredentials: true 
+    baseURL: 'https://b10a11-server-side-ummesalma303.vercel.app',withCredentials: true 
   });
 
 
@@ -15,6 +14,7 @@ const useAxiosSecure = () => {
   const navigate = useNavigate()
   useEffect(()=>{
     axiosSecure.interceptors.response.use(response=>{
+      console.log(response)
       return response
     },err=>{
       // console.log(err.response.data.message)

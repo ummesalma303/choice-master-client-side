@@ -108,10 +108,10 @@ const handleQueryForm = async e =>{
         return data
    }})
     return (
-       <div className="w-11/12 mx-auto my-14 space-y-11 my-24">
+       <div className="w-11/12 mx-auto  space-y-11 my-24">
          <div className='  md:flex justify-between'>
             {/* query details */}
-            <div className="md:w-[45%] card bg-base-100 shadow-xl border-2 border-[#0008]">
+            <div className="md:w-[45%] card border-[1px] border-gray-900/5 dark:bg-gray-800 bg-white rounded-lg">
         <figure className="px-10 pt-10">
           <img
             src={imageUrl}
@@ -123,8 +123,8 @@ const handleQueryForm = async e =>{
                 <h2>{currentDate}</h2>
                 <h2>{format(currentTime, "p")}</h2>
             </div>
-          <h2 className="card-title">Product Name: {productName}</h2>
-          <h3>Title:{title}</h3>
+          <h2 className="card-title"><span className='font-semibold dark:text-gray-200'>Product Name:</span> {productName}</h2>
+          <h3><span className='font-semibold dark:text-gray-300'>Title:</span>{title}</h3>
           <div className='flex justify-between my-4'>
                <div className="">
                <h2>User Name: {userName}</h2>
@@ -147,11 +147,11 @@ const handleQueryForm = async e =>{
 
      <div className="md:w-1/2">
      <div className="">
-    <h2 className='text-xl font-semibold underline'>Recommendation</h2>
+    <h2 className='text-xl font-semibold underline dark:text-white'>Recommendation</h2>
     
-<div className=" flex justify-center items-center my-9">
+<div className="  flex justify-center items-center my-9">
           <div className="card bg-base-100 w-full border border-[#00000033]">
-            <form onSubmit={handleQueryForm} className="card-body ">
+            <form onSubmit={handleQueryForm} className="card-body border-gray-900/5 dark:bg-gray-800 bg-white">
               {/* Recommended product Name  */}
               <div className="form-control">
                 <label className="label">
@@ -203,7 +203,7 @@ const handleQueryForm = async e =>{
                 <textarea  className='input input-bordered' name="reason"  placeholder="Recommendation reason:" id=""></textarea>
               </div>
               <div className="form-control mt-6">
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn bg-[rgba(132,94,194,1)] text-white">
                   Add Recommendation
                 </button>
               </div>
@@ -218,7 +218,7 @@ const handleQueryForm = async e =>{
          {/* all recommendation */}
       <div className="">
         <h2 className='text-2xl my-4 font-semibold'>Recommendations:</h2>
-      <div className="grid grid-cols-1  gap-10  border-[1px] border-[#0000003f] p-5 rounded-lg">
+      <div className="grid grid-cols-1  gap-10  border-[1px] border-[#0000003f] dark:bg-[#101828] p-5 rounded-lg">
      {
       recommendations?.map(recommendation=><AllRecommendation key={recommendation._id} recommendation={recommendation}></AllRecommendation>)
      }
