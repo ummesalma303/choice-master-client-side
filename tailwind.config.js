@@ -11,6 +11,7 @@ export default {
       
       backgroundImage:{
         banner: "url('/src/assets/banner-2.jpg')",
+        newsletter: "url('/src/assets/newsletter.jpg')",
         errorBanner: "url('/error-page.jpg')"
       }
     },

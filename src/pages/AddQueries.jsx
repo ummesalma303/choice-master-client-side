@@ -79,8 +79,8 @@ const AddQueries = () => {
         <div>
         {/* form */}
         {/* <div className="hero "> */}
-        <div className=" flex justify-center items-center my-9">
-          <div className="card bg-base-100 w-full max-w-xl border border-[#00000033]">
+        <div className=" flex justify-center items-center my-24 ">
+          <div className="card w-full max-w-xl border  border-[1px] border-gray-900/5 bg-white dark:bg-gray-800 rounded-lg">
             <form onSubmit={handleQueries} className="card-body ">
               {/* Product Name  */}
               <div className="form-control">
@@ -145,7 +145,7 @@ const AddQueries = () => {
                 <textarea  className='input input-bordered' name="boycottingDetails"  placeholder="Boycotting Reason Details:" id=""></textarea>
               </div>
               <div className="form-control mt-6">
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white mt-5 dark:bg-gradient-to-tl from-[ rgba(132,94,194,1)] to-[rgba(75,255,237,1)]">
                   Add Query
                 </button>
               </div>

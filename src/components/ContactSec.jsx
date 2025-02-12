@@ -51,7 +51,7 @@ const ContactSec = () => {
       );
   };
     return (
-         <div className=' mx-auto mb-16 md:mb-0'>
+         <div className='w-11/12 mx-auto mb-16 md:mb-0'>
             
         <div className="md:flex flex-col lg:flex-row-reverse justify-between items-center">
         {/* <div className="hero-content flex-col lg:flex-row-reverse gap-x-6"> */}

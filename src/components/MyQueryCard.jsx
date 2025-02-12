@@ -70,12 +70,12 @@ https://b10a11-server-side-ummesalma303.vercel.app/query/${id}`)
             <h3>Recommendation Count: {recommendationCount}</h3>
           <p>Boycotting Details: {boycottingDetails?.substr(0,17)}...</p>
          
-          <div className="card-actions">
+          <div className="card-actions ">
            <NavLink to={`/queryDetails/${_id}`}> <button className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white mt-5 dark:bg-gradient-to-tl from-[ rgba(132,94,194,1)] to-[rgba(75,255,237,1)]">
            View Details</button></NavLink>
            <NavLink to={`/updateQuery/${_id}`}> <button className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white mt-5 dark:bg-gradient-to-tl from-[ rgba(132,94,194,1)] to-[rgba(75,255,237,1)]"><CiEdit />Update</button></NavLink>
             {/* <button className="btn btn-primary">Update</button> */}
-            <button onClick={()=>handleDelete(_id)} className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white mt-5 dark:bg-gradient-to-tl from-[ rgba(132,94,194,1)] to-[rgba(75,255,237,1)]"><MdDeleteForever />
+            <button onClick={()=>handleDelete(_id)} className="btn bg-gradient-to-tl from-blue-600 to-[#0a1124] text-white dark:bg-gradient-to-tl from-[ rgba(132,94,194,1)] to-[rgba(75,255,237,1)]"><MdDeleteForever />
              Delete </button>
           </div>
         </div>

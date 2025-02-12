@@ -54,8 +54,9 @@ console.log(queries)
             {/*  */}
              <div className='absolute flex justify-center items-center bg-gradient-to-t from-[#0000004a] to-[#00000083] inset-0'>
                <div className="text-center mx-auto w-1/2">
+               <h2 className=' text-4xl font-semibold text-white mb-4'>Choice Master</h2>
                <h2 className='text-xl text-white text '>  Evaluating the Impact of Modern Technology  on the Performance and Efficiency of  Retail Businesses in Today's Market</h2>
-              <NavLink to='/addQueries'> <button className='btn mt-7'>Add Query </button></NavLink>
+              <NavLink to='/addQueries'> <button className='btn bg-black text-white border-none mt-7'>Add Query </button></NavLink>
                </div>
                {/*  */}
                  </div>

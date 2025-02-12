@@ -8,6 +8,7 @@ import LogoSec from '../components/LogoSec';
 // import CommunitySec from '../components/CommunitySec';
 import ContactSec from '../components/ContactSec';
 import Banner from '../components/Banner';
+import Newsletter from '../components/Newsletter';
 
 const Home = () => {
     const queries = useLoaderData()
@@ -20,10 +21,11 @@ const Home = () => {
              <LogoSec></LogoSec>
            {/* Recent Queries section */}
            <RecentQueries queries={queries}></RecentQueries>
+           </div>
          
            {/* community sec */}
+           <Newsletter></Newsletter>
            <ContactSec></ContactSec>
-           </div>
         </div>
     );
 };
