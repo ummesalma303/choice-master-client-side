@@ -23,12 +23,24 @@ const Navbar = () => {
     </>
 
     const themeToggle=()=>{
-      setTheme(theme === 'light' ? 'dark':"light")
+      setTheme(theme === 'dark' ? 'light':"dark")
     }
     useEffect(() => {
-      document.querySelector("html").setAttribute('data-theme',theme)
-      
-    }, [theme])
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark'); 
+      } else {
+        document.documentElement.classList.remove('dark'); 
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    }, [theme]);
+
+
+
+    // useEffect(() => {
+    //   document.documentElement.setAttribute('data-theme', theme);
+    // }, [theme]);
+    
+    
     
     return (
         <div className=" bg-gradient-to-r from-blue-600 to-[#0a1124] text-white fixed top-0 z-30 w-full">

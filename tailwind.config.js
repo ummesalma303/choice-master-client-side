@@ -1,12 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: "class",
+  
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
+      
       backgroundImage:{
         banner: "url('/src/assets/banner-2.jpg')",
         errorBanner: "url('/error-page.jpg')"
@@ -15,5 +17,8 @@ export default {
   },
   plugins: [
     require('daisyui'),
+    {daisyui: {
+      themes: ['light', 'dark'],
+    }},
   ],
 }
