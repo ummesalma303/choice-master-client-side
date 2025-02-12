@@ -62,10 +62,10 @@ const Login = () => {
         <div>
             {/* form */}
           
-  <div className=" flex-col ">
+  <div className=" flex-col mt-32 ">
             
     <div className=" flex justify-center items-center my-9">
-           <div className="card bg-base-100 w-full max-w-xl border border-[#00000033]">
+           <div className="card border-[1px] border-gray-900/5  shadow-xl bg-white dark:bg-gray-800 rounded-lg w-full max-w-xl ">
              <form onSubmit={handleLogin} className="card-body ">
                {/* google login button */}
             <div className=" flex justify-center items-center">
@@ -109,7 +109,7 @@ const Login = () => {
                  </label>
                </div>
                <div className="form-control mt-6">
-                 <button type="submit" className="btn bg-black text-white hover:text-black">
+                 <button type="submit" className="btn bg-black text-white hover:text-black bg-[rgba(132,94,194,1)] dark:hover:text-white">
                    Log in
                  </button>
                </div>

@@ -9,5 +9,13 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <script type="text/javascript">
+      (function(){
+         emailjs.init({
+           publicKey: import.meta.env.VITE_PUBLIC_KEY,
+         });
+      })();
+   </script>
   </body>
 </html>

@@ -65,8 +65,9 @@ const Register = () => {
     <div>
       {/* form */}
       {/* <div className="hero "> */}
-      <div className=" flex justify-center items-center my-9">
-        <div className="card bg-base-100 w-full max-w-xl border border-[#00000033]">
+      <div className=" flex justify-center items-center my-9 mt-32">
+        {/* dark:bg-gray-800 rounded-lg */}
+        <div className="card border-[1px] border-gray-900/5 dark:bg-gray-800 rounded-lg  shadow-xl bg-white  w-full max-w-xl ">
           <form onSubmit={handleSubmit} className="card-body ">
             {/* name */}
             <div className="form-control">
@@ -129,8 +130,9 @@ const Register = () => {
                 </p>
               </label>
             </div>
+            {/* dark:bg-gradient-to-tl from-[ rgba(132,94,194,1)] to-[rgba(75,255,237,1)] */}
             <div className="form-control mt-6">
-              <button type="submit" className="btn bg-black text-white hover:text-black">
+              <button type="submit" className="btn bg-black text-white hover:text-black bg-[rgba(132,94,194,1)] dark:hover:text-white">
                 Sign Up
               </button>
             </div>

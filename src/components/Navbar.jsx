@@ -40,10 +40,10 @@ const Navbar = () => {
     //   document.documentElement.setAttribute('data-theme', theme);
     // }, [theme]);
     
-    
-    
+    // bg-gradient-to-tl from-[ rgba(132,94,194,1)] to-[rgba(196,243,251,1)]
+    // background-image: linear-gradient( 150.4deg,  rgba(75,255,237,1) 11.7%, rgba(32,42,235,1) 82.4% );
     return (
-        <div className=" bg-gradient-to-r from-blue-600 to-[#0a1124] text-white fixed top-0 z-30 w-full">
+        <div className=" bg-gradient-to-l from-[rgba(132,94,194,1)] to-[rgba(75,255,237,1)] text-white fixed top-0 z-30 w-full">
             <div className="w-11/12  mx-auto navbar ">
             <div className="navbar-start">
           <div className="dropdown">
@@ -63,7 +63,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box  mt-3 w-52 p-2 shadow  z-20 text-black">
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box  mt-3 w-52 p-2 shadow  z-20 text-black dark:text-white">
                             <li>{ link}</li>
               
             </ul>
@@ -80,8 +80,8 @@ const Navbar = () => {
         </div>
         <div className="navbar-end space-x-4">
           {/* theme controller */}
-        <label className="grid cursor-pointer place-items-center">
-  <input
+        <button type='button' className="grid cursor-pointer place-items-center">
+  <input 
     type="checkbox"
     value="synthwave"
     className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1" onClick={themeToggle} />
@@ -113,7 +113,7 @@ const Navbar = () => {
     strokeLinejoin="round">
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
   </svg>
-</label>
+</button>
 
 {/* button */}
           {
