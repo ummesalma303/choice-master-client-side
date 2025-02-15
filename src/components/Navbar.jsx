@@ -44,7 +44,8 @@ const Navbar = () => {
     // background-image: linear-gradient( 150.4deg,  rgba(75,255,237,1) 11.7%, rgba(32,42,235,1) 82.4% );
     return (
         <div className=" bg-gradient-to-l from-[rgba(132,94,194,1)] to-[rgba(75,255,237,1)] text-white fixed top-0 z-30 w-full">
-            <div className="w-11/12  mx-auto navbar ">
+            <div className=" w-full 
+             md:w-11/12 mx-auto navbar">
             <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -69,6 +70,7 @@ const Navbar = () => {
             </ul>
           </div>
           {/* <img src={logo} alt="" /> */}
+          <div className=""></div>
          <h2 className='border-2 border-yellow-300 p-2 rounded-full'> <MdOutlineQueryStats size={25}/></h2>
           <a className="btn btn-ghost text-xl hidden md:flex">Choice Master</a>
         </div>
@@ -80,7 +82,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end space-x-4">
           {/* theme controller */}
-        <button type='button' className="grid cursor-pointer place-items-center">
+        <button type='button' className="grid cursor-pointer place-items-center invisible md:visible">
   <input 
     type="checkbox"
     value="synthwave"
@@ -117,7 +119,7 @@ const Navbar = () => {
 
 {/* button */}
           {
-            user? <div className='flex justify-center items-center space-x-3'><button className="btn" onClick={signOutUser}>Log Out</button> <img referrerPolicy='no-referrer' title={user?.displayName} className='w-12 h-12 rounded-full' src={user?.photoURL
+            user? <div className='flex justify-center items-center space-x-3'><button className="btn" onClick={signOutUser}>Log Out</button> <img referrerPolicy='no-referrer' title={user?.displayName} className='w-12 h-12 rounded-full invisible md:visible' src={user?.photoURL
             } alt="" /></div>:<Link  to='/login'><button className='btn'>Log In</button></Link>
             }
             

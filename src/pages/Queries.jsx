@@ -2,20 +2,32 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import QueryCard from "../components/queryCard";
 import { useLoaderData } from "react-router-dom";
+import Loader from "../components/Loader";
 
 const Queries = () => {
   const [queries, setQueries] = useState([]);
   const [search, setSearch] = useState("");
   const [column, setColumn] = useState(true);
+  const [loading, setLoading] = useState(true)
   const [sortQueries, setSortQueries] = useState('');
+   
+
   useEffect(() => {
+    setLoading(true)
     axios
       .get(`https://b10a11-server-side-ummesalma303.vercel.app/allQueries?search=${search}&sort=${sortQueries}`
       )
-      .then((res) => setQueries(res.data));
-    // console.log(queries);
-  }, [search,sortQueries]);
-  // console.log(search)
+      .then((res) => {
+        setQueries(res.data)
+        setLoading(false)
+      
+      }).catch((error) => {
+      console.error("Error fetching data:", error);
+      setLoading(false); // Ensure loading stops even on error
+    });
+    }, [search,sortQueries]);
+    // console.log(search)
+    console.log(queries);
   // const queries = useLoaderData()
   const toggleGridLayout = () => {
     setColumn(!column);
@@ -62,7 +74,7 @@ const Queries = () => {
 
       {/* <div className={`grid grid-cols-1 md:grid-cols-2 ${column === 3 &&"lg:grid-cols-3"} ${column === 2 &&"lg:grid-cols-2"} ${column === 1 &&"lg:grid-cols-1"}`}> */}
 
-      <div
+     {loading?<Loader/>: <div
         className={`grid grid-cols-1 md:grid-cols-2 gap-6 my-7 ${
           column ? "lg:grid-cols-3" : "grid-cols-2"
         }`}
@@ -72,7 +84,7 @@ const Queries = () => {
         {queries?.map((query) => (
           <QueryCard key={query?._id} query={query}></QueryCard>
         ))}
-      </div>
+      </div>}
     </div>
   );
 };
